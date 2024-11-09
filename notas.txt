@@ -1,0 +1,14 @@
+bpp -> bits por pixel
+
+bits são ints->4 bytes->8bits
+
+small endian -> o que significa que provavelmente estamos
+em um display remoto e temos apenas cores de 8 bits.
+
+precisamos entender que os bytes não estão alinhados, o que significa que eles 
+line_lengthdiferem da largura real da janela. Portanto, devemos SEMPRE calcular o 
+deslocamento de memória usando o comprimento da linha definido por mlx_get_data_addr.
+
+Podemos calculá-lo facilmente usando a seguinte fórmula:
+
+int offset = (y * line_length + x * (bits_per_pixel / 8));
