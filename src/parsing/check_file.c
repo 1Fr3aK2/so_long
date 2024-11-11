@@ -23,3 +23,13 @@ int check_name(char *name)
         ft_putstr_fd("Invalid map name", 2);
     return (0);
 }
+
+void check_map(char *file)
+{
+    int fd;
+
+    fd = open(file, O_RDONLY);
+    if (fd < 0)
+        ft_putstr_fd("Erro opening the file\n", 2);
+    
+}

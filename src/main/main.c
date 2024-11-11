@@ -14,22 +14,13 @@
 #define ALTURA 500
 #define LARGURA 800
 
-/* int main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     if (argc != 2)
         ft_putstr_fd("Ivalide number of arguments\n ./so_long map.ber", 2);
     check_name(argv[1]);
-} */
-/* static void my_pixel_put(t_data *data, int x, int y, int color) //funcao criada pelo user para colocar pixeis na janela
-{
-    char *dst;
     
-    if (!data)
-        return ;
-    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel/8));
-    *(unsigned int *)dst = color;
 }
- */
 /* int	main(void)
 {
 	void	*mlx;

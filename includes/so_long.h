@@ -16,15 +16,22 @@
 #include    "../includes/minilibx-linux/mlx.h"
 # include "X11/X.h"
 # include "X11/keysym.h"
+#include <fcntl.h>
 
-
-typedef struct	s_data {
+typedef struct	s_image 
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+}				t_image;
+
+typedef struct s_data
+{
+	t_image image;
 }				t_data;
+
 
 //parsing
 int check_name(char *name);
