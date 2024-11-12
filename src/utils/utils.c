@@ -17,3 +17,25 @@
     ft_calloc(1, sizeof(t_data));
     data->image.img = 
 } */
+
+void	close_fds(int i)
+{
+	i = 3;
+	while (i < FOPEN_MAX)
+	{
+		close(i);
+		i++;
+	}
+}
+
+void check_open_fds()
+{
+    int fd;
+    for (fd = 3; fd < 1024; ++fd) // Começa no 3 porque 0, 1, e 2 são stdin, stdout, stderr
+    {
+        if (fcntl(fd, F_GETFD) != -1) // F_GETFD retorna -1 se o FD não está em uso
+        {
+            printf("\nFD %d is still open\n", fd);
+        }
+    }
+}

@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         ft_putstr_fd("Número inválido de argumentos\nUso: ./so_long map.ber\n", 2);
         return (1);
     }
-    init_map(argv[1], data);
+    init_map(argv[1], &data);
 
     return (0);
 }

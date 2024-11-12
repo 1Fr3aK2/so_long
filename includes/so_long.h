@@ -7,6 +7,15 @@
 # define WHITE 0x00FFFFFF
 # define BLACK 0x00000000
 
+# define VALID_CHARS "01CEP"
+# define WALLS '1'
+# define SPACE "0"
+# define COLLECTIBLE "C"
+# define EXIT "E"
+# define START_POS "P"
+
+
+
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
@@ -29,14 +38,14 @@ typedef struct s_image
 typedef struct s_map
 {
 	char	**map;
+	int		height;
+	int		width;
 }				t_map;
 
 typedef struct s_file
 {
 	int					fd;
 	char		*file_name;
-	int			lines;
-	char		*content;
 }				t_file;
 
 typedef struct s_data
@@ -53,6 +62,7 @@ void get_map(char *file_name, t_data *data);
 void init_map(char *file, t_data *data);
 
 //utils 
-char *ft_strncat(char *dest, char *s, int n);
+void	close_fds(int i);
+void check_open_fds();
 
 #endif
