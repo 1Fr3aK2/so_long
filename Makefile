@@ -1,5 +1,7 @@
 SRCS = src/main/main.c \
-       src/parsing/check_file.c \
+       src/parsing/file/check_file.c \
+	   src/parsing/map/check_map.c \
+	   src/parsing/struct_init/init.c \
 	   src/utils/utils.c \
 
 NAME = so_long
@@ -47,6 +49,9 @@ $(OBJ_DIR)/%.o: src/%.c | $(CREATE_DIR)
 $(CREATE_DIR):
 	@mkdir -p $(OBJ_DIR)/main
 	@mkdir -p $(OBJ_DIR)/parsing
+	@mkdir -p $(OBJ_DIR)/parsing/map
+	@mkdir -p $(OBJ_DIR)/parsing/file
+	@mkdir -p $(OBJ_DIR)/parsing/struct_init
 	@mkdir -p $(OBJ_DIR)/utils
 
 $(LIBFT):

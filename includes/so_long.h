@@ -9,12 +9,10 @@
 
 # define VALID_CHARS "01CEP"
 # define WALLS '1'
-# define SPACE "0"
-# define COLLECTIBLE "C"
-# define EXIT "E"
-# define START_POS "P"
-
-
+# define SPACE '0'
+# define COLLECTIBLE 'C'
+# define EXIT 'E'
+# define START_POS 'P'
 
 # include <unistd.h>
 # include <stdio.h>
@@ -40,6 +38,9 @@ typedef struct s_map
 	char	**map;
 	int		height;
 	int		width;
+	int		collectibles;
+	int		exit;
+	int		start_pos;
 }				t_map;
 
 typedef struct s_file
@@ -56,10 +57,21 @@ typedef struct s_data
 }				t_data;
 
 //parsing
-void	check_map(char *file_name);
+//parsing/file
+void check_map_name(char *file_name);
 void get_lines(t_data *data, char *file_name);
 void get_map(char *file_name, t_data *data);
+
+//parsing/map
+int valid_chars(t_map *map);
+int check_walls(t_map *map);
+/* int check_collectibles(t_map *map); */
+void check_format(t_map *map);
 void init_map(char *file, t_data *data);
+
+//parsing/struct_init
+void init_struct(t_data *data);
+
 
 //utils 
 void	close_fds(int i);

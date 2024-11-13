@@ -39,3 +39,18 @@ void check_open_fds()
         }
     }
 }
+
+/* void	ft_free(char **cmd)
+{
+	size_t	i;
+
+	if (!(*cmd) || !cmd)
+		return ;
+	i = 0;
+	while (cmd[i])
+	{
+		free(cmd[i]);
+		i++;
+	}
+	free(cmd);
+} */

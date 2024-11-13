@@ -14,28 +14,20 @@
 #define ALTURA 500
 #define LARGURA 800
 
-/* int main(int argc, char *argv[])
-{
-    t_data data;
-    if (argc != 2)
-        ft_putstr_fd("Ivalide number of arguments\n ./so_long map.ber", 2);
-    check_map(data, argv[1]);
-    check_name(argv[1]);
-    get_map(data.file.fd);
-} */
 
 int main(int argc, char *argv[])
 {
     t_data data;
-
-    // Verifica o número de argumentos
+    
+    /* data = NULL; */
     if (argc != 2)
     {
         ft_putstr_fd("Número inválido de argumentos\nUso: ./so_long map.ber\n", 2);
         return (1);
     }
+    /* init_struct(data); */
     init_map(argv[1], &data);
-
+    /* printf("bpp : %d\n", data->image.endian); */
     return (0);
 }
 

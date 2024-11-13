@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../../includes/so_long.h"
 
-void check_map(char *file_name)
+void check_map_name(char *file_name)
 {
     t_data data;
     int len;
@@ -119,92 +119,5 @@ void get_map(char *file_name, t_data *data)
         free(data->map.map[j]);
     }
     free(data->map.map); */
-}
-
-int valid_chars(t_map *map)
-{
-    int i;
-    int j;
-    int k;
-
-    if (!map || !map->map)
-        return (-1);
-    i = 0;
-    while (i < map->height)
-    {
-        j = 0;
-        while (map->map[i][j] && j < map->width)
-        {
-            k = 0;
-            while (VALID_CHARS[k])
-            {
-                if (map->map[i][j] != VALID_CHARS[k])
-                    k++;
-                else
-                    break;
-                if (!VALID_CHARS[k])
-                    return (0);
-            }
-            j++;
-        }
-        i++;
-    }
-    return (1);
-}
-
-static int check_walls(t_map *map)
-{
-    if (!map)
-        return (-1);
-    int i = 0;
-    int j = 0;
-    while (i < map->height)
-    {
-        j = 0;
-        while (map->map[i][j] && j < map->width)
-        {
-            if (map->map[i][j] != WALLS)
-                return (0);
-            j++;
-        }
-        i++;
-    }
-    return (1);
-}
-
-
-static void check_format(t_map *map)
-{
-    if (!map)
-        return ;
-    int j = check_walls(map);
-    printf("return of check walls: %d\n", j);
-}
-
-void	ft_free(char **cmd)
-{
-	size_t	i;
-
-	if (!(*cmd) || !cmd)
-		return ;
-	i = 0;
-	while (cmd[i])
-	{
-		free(cmd[i]);
-		i++;
-	}
-	free(cmd);
-}
-
-void init_map(char *file, t_data *data)
-{
-    check_map(file);
-    get_lines(data, file);
-    get_map(file, data);
-    int i = valid_chars(&data->map);
-    printf("return of valid chars: %d\n", i);
-    check_format(&data->map);
-    check_open_fds();
-    close_fds(0);
 }
 
