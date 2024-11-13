@@ -1,13 +1,15 @@
 SRCS = src/main/main.c \
        src/parsing/file/check_file.c \
-	   src/parsing/map/check_map.c \
+	   src/parsing/map/check_map.c  \
+	   src/parsing/map/get_map.c \
+	   src/parsing/map/init_map.c \
 	   src/parsing/struct_init/init.c \
 	   src/utils/utils.c \
 	   src/errors/errors.c \
 
 NAME = so_long
 
-COMPRESS = ar rcs
+COMPRESS = ar rcs	
 
 RM = rm -f
 
