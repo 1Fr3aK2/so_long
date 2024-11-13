@@ -3,7 +3,7 @@ SRCS = src/main/main.c \
 	   src/parsing/map/check_map.c  \
 	   src/parsing/map/get_map.c \
 	   src/parsing/map/init_map.c \
-	   src/parsing/struct_init/init.c \
+	   src/init/init.c \
 	   src/utils/utils.c \
 	   src/errors/errors.c \
 
@@ -55,7 +55,7 @@ $(CREATE_DIR):
 	@mkdir -p $(OBJ_DIR)/parsing
 	@mkdir -p $(OBJ_DIR)/parsing/file
 	@mkdir -p $(OBJ_DIR)/parsing/map
-	@mkdir -p $(OBJ_DIR)/parsing/struct_init
+	@mkdir -p $(OBJ_DIR)init
 	@mkdir -p $(OBJ_DIR)/utils
 
 $(LIBFT):

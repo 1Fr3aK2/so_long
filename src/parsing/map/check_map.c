@@ -132,42 +132,25 @@ void	check_format(t_map *map, t_data *data)
 	if (!map || !data)
 		return ;
 	if (valid_chars(map) != 1)
-	{
-		ft_putstr_fd("CHECK_FORMAT/CHARS : CHARS ERROR\n", 2);
-		exit_error(data);
-	}
+		exit_error(data, "CHECK_FORMAT/CHARS : CHARS ERROR\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/CHARS : PASSED\n", 2);
 	if (check_walls(map) != 1)
-	{
-		ft_putstr_fd("CHECK_FORMAT/WALLS : WALL ERROR\n", 2);
-		exit_error(data);
-	}
+		exit_error(data, "CHECK_FORMAT/WALLS : WALL ERROR\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/WALLS : PASSED\n", 2);
 	if (check_exit(map) != 1)
-	{
-		ft_putstr_fd("CHECK_FORMAT/EXIT : EXIT ERROR (less/more than 1 EXIT)\n",
-			2);
-		exit_error(data);
-	}
+		exit_error(data, "CHECK_FORMAT/EXIT : EXIT ERROR (less/more than 1 EXIT)\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/EXIT : PASSED\n", 2);
 	if (check_collectibles(map) != 1)
-	{
-		ft_putstr_fd("CHECK_FORMAT/COLLECTIBLES : COLLECTIBLES ERROR (less than 1)\n",
-			2);
-		exit_error(data);
-	}
+		exit_error(data, "CHECK_FORMAT/COLLECTIBLES : COLLECTIBLES ERROR (less than 1)\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/COLLECTIBLES : PASSED\n", 2);
 	if (check_start_pos(map) != 1)
-	{
-		ft_putstr_fd("CHECK_FORMAT/START_POS : START_POS ERROR (less/more than 1 start_pos)\n",
-			2);
-		exit_error(data);
-	}
+		exit_error(data, "CHECK_FORMAT/START_POS : START_POS ERROR (less/more than 1 start_pos)\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/START_POS : PASSED\n", 2);
 }
+
 
