@@ -19,15 +19,14 @@ int main(int argc, char *argv[])
 {
     t_data data;
     
-    /* data = NULL; */
     if (argc != 2)
     {
         ft_putstr_fd("Número inválido de argumentos\nUso: ./so_long map.ber\n", 2);
         return (1);
     }
-    /* init_struct(data); */
+    init_struct(&data);
     init_map(argv[1], &data);
-    /* printf("bpp : %d\n", data->image.endian); */
+    printf("bpp : %d\n", data.map.collectibles);
     return (0);
 }
 
@@ -38,7 +37,7 @@ int main(int argc, char *argv[])
 
 
 
-
+  
 
 
 
