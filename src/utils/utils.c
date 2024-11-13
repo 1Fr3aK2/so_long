@@ -28,7 +28,7 @@ void	close_fds(int i)
 	}
 }
 
-void check_open_fds()
+void check_open_fds(void)
 {
     int fd;
     for (fd = 3; fd < 1024; ++fd) // Começa no 3 porque 0, 1, e 2 são stdin, stdout, stderr
@@ -40,17 +40,17 @@ void check_open_fds()
     }
 }
 
-/* void	ft_free(char **cmd)
+void	free_arr(char **arr)
 {
-	size_t	i;
+	int	i;
 
-	if (!(*cmd) || !cmd)
+	if (!arr)
 		return ;
 	i = 0;
-	while (cmd[i])
+	while (arr[i])
 	{
-		free(cmd[i]);
+		free(arr[i]);
 		i++;
 	}
-	free(cmd);
-} */
+	free(arr);
+}

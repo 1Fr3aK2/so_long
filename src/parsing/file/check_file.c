@@ -14,13 +14,13 @@
 
 void check_map_name(char *file_name)
 {
-    t_data data;
+    t_file file;
     int len;
 
     if (!file_name)
         return ;
-    data.file.fd = open(file_name, O_RDONLY);
-    if (data.file.fd < 0)
+    file.fd = open(file_name, O_RDONLY);
+    if (file.fd < 0)
     {
         ft_putstr_fd("CHECK_MAP : Error opening the file\n", 2);
         exit(1);
@@ -30,12 +30,13 @@ void check_map_name(char *file_name)
     if(len < 4 || ft_strncmp(&file_name[len-4], ".ber", 4))
     {
         ft_putstr_fd("CHECK_MAP :Invalid map name\n", 2);
-        close(data.file.fd);
+        close(file.fd);
         exit(1);
     }
     else
         ft_putstr_fd("check name passed\n", 1);
-    close (data.file.fd);
+    close (file.fd);
+    /* close_fds(0); */
 }
 
 void get_lines(t_data *data, char *file_name)
@@ -66,7 +67,7 @@ void get_lines(t_data *data, char *file_name)
 
 void get_map(char *file_name, t_data *data)
 {
-    static char *file;
+    char *file;
     int i;
     
     i = 0;

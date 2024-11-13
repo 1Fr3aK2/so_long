@@ -11,22 +11,25 @@
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-#define ALTURA 500
-#define LARGURA 800
 
 
 int main(int argc, char *argv[])
 {
     t_data data;
-    
+
     if (argc != 2)
     {
         ft_putstr_fd("Número inválido de argumentos\nUso: ./so_long map.ber\n", 2);
         return (1);
     }
     init_struct(&data);
+    printf("start_pos  : %d\n", data.map.start_pos);
+    printf("collectibles  : %d\n", data.map.collectibles);
+    printf("exit : %d\n", data.map.exit);
     init_map(argv[1], &data);
-    printf("bpp : %d\n", data.map.collectibles);
+    printf("start_pos : %d\n", data.map.start_pos);
+    printf("collectibles : %d\n", data.map.collectibles);
+    printf("exit : %d\n", data.map.exit);
     return (0);
 }
 
