@@ -70,13 +70,14 @@ int		check_walls(t_map *map);
 int		check_collectibles(t_map *map);
 int		check_start_pos(t_map *map);
 int		check_exit(t_map *map);
-void	check_format(t_map *map, t_data *data);
+int		check_format(t_map *map);
 
 //parsing/get_map
 void	get_lines(t_data *data, char *file_name);
 void	get_map(char *file_name, t_data *data);
 
 //parsing/init_map
+void	check_valid_map(t_map *map, t_data *data);
 void	init_map(char *file, t_data *data);
 
 //init

@@ -15,15 +15,10 @@ int	valid_chars(t_map *map)
 		while (map->map[i][j] && j < map->width)
 		{
 			k = 0;
-			while (VALID_CHARS[k])
-			{
-				if (map->map[i][j] != VALID_CHARS[k])
-					k++;
-				else
-					break ;
-				if (!VALID_CHARS[k])
-					return (0);
-			}
+			while (VALID_CHARS[k] && map->map[i][j] != VALID_CHARS[k])
+				k++;
+			if (!VALID_CHARS[k])
+				return (0);
 			j++;
 		}
 		i++;
@@ -127,30 +122,24 @@ int	check_exit(t_map *map)
 	return (1);
 }
 
-void	check_format(t_map *map, t_data *data)
+int	check_format(t_map *map)
 {
-	if (!map || !data)
-		return ;
-	if (valid_chars(map) != 1)
-		exit_error(data, "CHECK_FORMAT/CHARS : CHARS ERROR\n");
-	else
-		ft_putstr_fd("CHECK_FORMAT/CHARS : PASSED\n", 2);
-	if (check_walls(map) != 1)
-		exit_error(data, "CHECK_FORMAT/WALLS : WALL ERROR\n");
-	else
-		ft_putstr_fd("CHECK_FORMAT/WALLS : PASSED\n", 2);
-	if (check_exit(map) != 1)
-		exit_error(data, "CHECK_FORMAT/EXIT : EXIT ERROR (less/more than 1 EXIT)\n");
-	else
-		ft_putstr_fd("CHECK_FORMAT/EXIT : PASSED\n", 2);
-	if (check_collectibles(map) != 1)
-		exit_error(data, "CHECK_FORMAT/COLLECTIBLES : COLLECTIBLES ERROR (less than 1)\n");
-	else
-		ft_putstr_fd("CHECK_FORMAT/COLLECTIBLES : PASSED\n", 2);
-	if (check_start_pos(map) != 1)
-		exit_error(data, "CHECK_FORMAT/START_POS : START_POS ERROR (less/more than 1 start_pos)\n");
-	else
-		ft_putstr_fd("CHECK_FORMAT/START_POS : PASSED\n", 2);
+	int	i;
+	int	j;
+
+	if (!map)
+		return (-1);
+	i = 0;
+	j = 0;
+	while (i < map->height)
+	{
+		while (map->map[i][j])
+			j++;
+		if ((j - 1) != map->width)
+			return (0);
+		j = 0;
+		i++;
+	}
+	return (1);
 }
-
-
+/*  	 */
