@@ -1,4 +1,4 @@
-SRCS = get_next_line_bonus.c get_next_line_utils_bonus.c 
+SRCS = get_next_line_bonus.c get_next_line_utils_bonus.c
 
 NAME = get_next_line
 

@@ -88,6 +88,9 @@ void	exit_error(t_data *data, char *str);
 
 //utils 
 void	close_fds(int i);
-void	check_open_fds(void);
 void	free_arr(char **arr);
+
+//test_functions
+void	check_open_fds(void);
+void *my_malloc(size_t size);
 #endif

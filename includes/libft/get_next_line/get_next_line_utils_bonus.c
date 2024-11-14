@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raamorim <raamorim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 02:21:58 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/30 18:59:17 by raamorim         ###   ########.fr       */
+/*   Updated: 2024/11/14 03:56:38 by rafael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strjoin_line(char *s1, char *s2)
 	j = 0;
 	str = malloc(ft_strlen_line(s1) + ft_strlen_line(s2) + 1);
 	if (!str)
-		return (NULL);
+		return (free_gnl(s1));
 	while (s1[i])
 	{
 		str[i] = s1[i];
@@ -78,6 +78,7 @@ int	check_and_clear(char *line)
 
 char	*free_gnl(char *gnl)
 {
-	free(gnl);
+	if (gnl)
+		free(gnl);
 	return (NULL);
 }

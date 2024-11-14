@@ -142,4 +142,14 @@ int	check_format(t_map *map)
 	}
 	return (1);
 }
-/*  	 */
+/* int check_valid_path(t_map *map)
+{
+	int i;
+	int j;
+	
+	if (!map)
+		return (-1);
+	j = 0;
+	i = 0;
+
+} */

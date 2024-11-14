@@ -31,10 +31,7 @@ void	get_map(char *file_name, t_data *data)
 
 	i = 0;
 	if (data->map.height <= 0)
-	{
-		ft_putstr_fd("GET_MAP : Invalid number of lines\n", 2);
-		exit(1);
-	}
+		exit_error(NULL, "GET_MAP : Invalid number of lines\n");
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
 	{
@@ -42,12 +39,9 @@ void	get_map(char *file_name, t_data *data)
 		exit(1);
 	}
 	data->map.map = malloc(sizeof(char *) * (data->map.height + 1));
+	/* data->map.map = my_malloc(sizeof(char *) * (data->map.height + 1)); */
 	if (!data->map.map)
-	{
-		ft_putstr_fd("GET_MAP : Memory allocation error\n", 2);
-		close(data->file.fd);
-		exit(1);
-	}
+		exit_error(NULL, "GET_MAP : Memory allocation error\n");
 	while ((file = get_next_line(data->file.fd)))
 	{
 		if (i < data->map.height)
