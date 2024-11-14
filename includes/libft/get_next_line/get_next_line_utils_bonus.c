@@ -6,7 +6,7 @@
 /*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 02:21:58 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 03:56:38 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/14 22:47:56 by rafael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ char	*ft_strjoin_line(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (!s1 || !s2)
+	if (!s1)
 		return (NULL);
+	if (!s2)
+	{
+		free(s1);
+		return (NULL);
+	}
 	i = 0;
 	j = 0;
 	str = malloc(ft_strlen_line(s1) + ft_strlen_line(s2) + 1);

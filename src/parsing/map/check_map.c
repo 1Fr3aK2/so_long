@@ -157,9 +157,10 @@ static char **copy_map(char **map, int height)
 	while (i < height)
 	{
 		temp[i] = ft_strdup(map[i]);
-		if (!temp)
+		if (!temp[i])
 		{
-			free_arr(map, height);
+			free_arr(temp, i);
+			return (NULL);
 		}
 		i++;
 	}
@@ -176,7 +177,8 @@ int check_valid_path(t_map *map)
 	printf("MAPA: \n\n");
 	for (int j = 0; j < map->height; j++)
 	{
-		write(1, temp[j], ft_strlen(temp[j]));
+		if (temp[j]) 
+			write(1, temp[j], ft_strlen(temp[j]));
 	}
 	printf("\n\nFIM!\n");
 	free_arr(temp, map->height);

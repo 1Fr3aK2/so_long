@@ -22,13 +22,6 @@ char	*ft_strdup(const char *s)
 	j = 0;
 	if (!s)
 		return (NULL);
-	/* if (!s)  // Se `s` for NULL, retorna uma string vazia alocada
-    {
-        dest = (char *)malloc(1);
-        if (dest)
-            dest[0] = '\0';
-        return dest;
-    } */
 	dest = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (dest == NULL)
 		return (NULL);
