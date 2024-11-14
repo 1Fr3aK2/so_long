@@ -53,14 +53,13 @@ void	free_arr(char **arr)
 		i++;
 	}
 	free(arr);
-	arr = NULL;
 }
 
-/* void *my_malloc(size_t size) 
+void *my_malloc(size_t size) 
 {
 	int malloc_fail_counter = 0;  // Número de chamadas antes de falhar
     if (--malloc_fail_counter <= 0) {
         return NULL;  // Força falha de alocação
     }
     return malloc(size);
-} */
+}

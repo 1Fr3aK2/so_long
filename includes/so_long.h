@@ -71,6 +71,7 @@ int		check_collectibles(t_map *map);
 int		check_start_pos(t_map *map);
 int		check_exit(t_map *map);
 int		check_format(t_map *map);
+int 	check_valid_path(t_map *map);
 
 //parsing/get_map
 void	get_lines(t_data *data, char *file_name);
@@ -92,5 +93,5 @@ void	free_arr(char **arr);
 
 //test_functions
 void	check_open_fds(void);
-void *my_malloc(size_t size);
+void	*my_malloc(size_t size);
 #endif

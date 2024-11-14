@@ -37,7 +37,7 @@ MLX = $(MLX_DIR)/libmlx.a
 # Adiciona as flags para o MinilibX e as bibliotecas de X11
 LINKS = -L$(MLX_DIR) -lmlx -lm -lXext -lX11
 
-all: $(NAME)
+all: $(NAME) $(LIBFT) $(FT_PRINT) $(GNL) $(MLX)
 
 # Regra para criar o executável a partir dos arquivos objeto e bibliotecas
 $(NAME): $(OBJS) $(LIBFT) $(FT_PRINT) $(GNL) $(MLX)

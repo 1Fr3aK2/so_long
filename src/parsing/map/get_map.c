@@ -8,10 +8,7 @@ void	get_lines(t_data *data, char *file_name)
 		return ;
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
-	{
-		ft_putstr_fd("GET_LINES : Error opening the file\n", 2);
-		exit(1);
-	}
+		exit_error(NULL, "GET_LINES : Error opening the file\n");
 	while ((line = get_next_line(data->file.fd)))
 	{
 		++(data->map.height);
@@ -34,10 +31,7 @@ void	get_map(char *file_name, t_data *data)
 		exit_error(NULL, "GET_MAP : Invalid number of lines\n");
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
-	{
-		ft_putstr_fd("GET_MAP : Error opening the file\n", 2);
-		exit(1);
-	}
+		exit_error(NULL, "GET_MAP : Error opening the file\n");
 	data->map.map = malloc(sizeof(char *) * (data->map.height + 1));
 	/* data->map.map = my_malloc(sizeof(char *) * (data->map.height + 1)); */
 	if (!data->map.map)
@@ -49,28 +43,19 @@ void	get_map(char *file_name, t_data *data)
 			data->map.map[i] = ft_strdup(file);
 			if (!data->map.map[i])
 			{
-				ft_putstr_fd("GET_MAP : Memory allocation error during ft_strdup\n",
-					2);
-				close(data->file.fd);
-				exit(1);
+				free(file);
+				exit_error(data, "GET_MAP : Memory allocation error during ft_strdup\n");
 			}
 			free(file);
 		}
 		i++;
 	}
 	close(data->file.fd);
-	// Verificar se todas as linhas foram lidas corretamente
 	if (i != data->map.height)
-	{
-		ft_putstr_fd("GET_MAP : Mismatch in expected and actual lines\n", 2);
-		close(data->file.fd);
-		exit(1);
-	}
-	data->map.map[i] = NULL;
-	/* for (int j = 0; j < i; j++)
+		exit_error(data, "GET_MAP : Mismatch in expected and actual lines\n");
+	for (int j = 0; j < i; j++)
 	{
 		write(1, data->map.map[j], ft_strlen(data->map.map[j]));
-		free(data->map.map[j]);
 	}
-	free(data->map.map); */
+	data->map.map[i] = NULL;
 }

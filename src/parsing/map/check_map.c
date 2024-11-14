@@ -142,14 +142,40 @@ int	check_format(t_map *map)
 	}
 	return (1);
 }
-/* int check_valid_path(t_map *map)
-{
-	int i;
-	int j;
-	
-	if (!map)
-		return (-1);
-	j = 0;
-	i = 0;
 
-} */
+static char **copy_map(char **map, int height)
+{
+	char **temp;
+	int i;
+
+	if (!map)
+		return (NULL);
+	temp = (char **)malloc(sizeof(char *) * (height + 1));
+	if (!temp)
+		return (NULL);
+	i = 0;
+	while (i < height)
+	{
+		temp[i] = ft_strdup(map[i]);
+		if (!temp)
+		{
+			free_arr(map);
+		}
+		i++;
+	}
+	return (temp);
+}
+
+int check_valid_path(t_map *map)
+{
+	char **temp;
+	temp = copy_map(map->map, map->height);
+	printf("MAPA: \n\n");
+	for (int j = 0; j < map->height; j++)
+	{
+		write(1, temp[j], ft_strlen(temp[j]));
+	}
+	printf("\n\nFIM");
+	free_arr(temp);
+	return 1;
+}
