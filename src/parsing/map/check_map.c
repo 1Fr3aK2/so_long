@@ -170,6 +170,8 @@ int check_valid_path(t_map *map)
 {
 	char **temp;
 	temp = copy_map(map->map, map->height);
+	if (!temp)
+		return (-1);
 	printf("MAPA: \n\n");
 	for (int j = 0; j < map->height; j++)
 	{
