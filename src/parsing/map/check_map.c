@@ -143,7 +143,7 @@ int	check_format(t_map *map)
 	return (1);
 }
 
-/* static char **copy_map(char **map, int height)
+static char **copy_map(char **map, int height)
 {
 	char **temp;
 	int i;
@@ -163,10 +163,11 @@ int	check_format(t_map *map)
 		}
 		i++;
 	}
+	temp[i] = NULL;
 	return (temp);
-} */
+}
 
-/* int check_valid_path(t_map *map)
+int check_valid_path(t_map *map)
 {
 	char **temp;
 	temp = copy_map(map->map, map->height);
@@ -177,7 +178,7 @@ int	check_format(t_map *map)
 	{
 		write(1, temp[j], ft_strlen(temp[j]));
 	}
-	printf("\n\nFIM");
+	printf("\n\nFIM!\n");
 	free_arr(temp, map->height);
 	return 1;
-} */
+}

@@ -49,3 +49,6 @@ your choic
 VERIFICAR ERRO GET_MAP I != MAP.HEIGHT;;
 
 verificar o desempenho ao usar strdup ou copiar char to char em copy map
+
+
+VERIFICAR GNL AO USAR NULL EM STRJOIN
