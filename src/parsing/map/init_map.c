@@ -28,10 +28,10 @@ void	check_valid_map(t_map *map, t_data *data)
 		exit_error(data, "CHECK_FORMAT/START_POS : START_POS ERROR (less/more than 1 start_pos)\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/START_POS : PASSED\n", 2);
-	if (check_valid_path(map) != 1)
+	/* if (check_valid_path(map) != 1)
 		exit_error(data, "CHECK_FORMAT/VALID_PATH : VALID_PATH ERROR\n");
 	else
-		ft_putstr_fd("CHECK_FORMAT/VALID_PATH : PASSED\n", 2);
+		ft_putstr_fd("CHECK_FORMAT/VALID_PATH : PASSED\n", 2); */
 	
 }
 
@@ -43,5 +43,5 @@ void	init_map(char *file, t_data *data)
 	check_valid_map(&data->map, data);
 	close_fds(0);
 	check_open_fds();
-	free_arr(data->map.map);
+	free_arr(data->map.map, data->map.height);
 }

@@ -40,14 +40,14 @@ void	check_open_fds(void)
 	}
 }
 
-void	free_arr(char **arr)
+void	free_arr(char **arr, int height)
 {
 	int	i;
-
+	
 	if (!arr)
 		return ;
 	i = 0;
-	while (arr[i])
+	while (i < height && arr[i])
 	{
 		free(arr[i]);
 		i++;
@@ -55,11 +55,11 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-void *my_malloc(size_t size) 
+/* void *my_malloc(size_t size) 
 {
 	int malloc_fail_counter = 0;  // Número de chamadas antes de falhar
     if (--malloc_fail_counter <= 0) {
         return NULL;  // Força falha de alocação
     }
     return malloc(size);
-}
+} */

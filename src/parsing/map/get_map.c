@@ -36,6 +36,7 @@ void	get_map(char *file_name, t_data *data)
 	/* data->map.map = my_malloc(sizeof(char *) * (data->map.height + 1)); */
 	if (!data->map.map)
 		exit_error(NULL, "GET_MAP : Memory allocation error\n");
+/* 	file = get_next_line(data->file.fd); */
 	while ((file = get_next_line(data->file.fd)))
 	{
 		if (i < data->map.height)
@@ -51,8 +52,13 @@ void	get_map(char *file_name, t_data *data)
 		i++;
 	}
 	close(data->file.fd);
+	/* data->map.height = 1999; */
 	if (i != data->map.height)
+	{
+		if (data->map.height > i)
+			data->map.height = i;
 		exit_error(data, "GET_MAP : Mismatch in expected and actual lines\n");
+	}
 	for (int j = 0; j < i; j++)
 	{
 		write(1, data->map.map[j], ft_strlen(data->map.map[j]));

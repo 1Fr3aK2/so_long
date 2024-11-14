@@ -143,7 +143,7 @@ int	check_format(t_map *map)
 	return (1);
 }
 
-static char **copy_map(char **map, int height)
+/* static char **copy_map(char **map, int height)
 {
 	char **temp;
 	int i;
@@ -159,14 +159,14 @@ static char **copy_map(char **map, int height)
 		temp[i] = ft_strdup(map[i]);
 		if (!temp)
 		{
-			free_arr(map);
+			free_arr(map, height);
 		}
 		i++;
 	}
 	return (temp);
-}
+} */
 
-int check_valid_path(t_map *map)
+/* int check_valid_path(t_map *map)
 {
 	char **temp;
 	temp = copy_map(map->map, map->height);
@@ -178,6 +178,6 @@ int check_valid_path(t_map *map)
 		write(1, temp[j], ft_strlen(temp[j]));
 	}
 	printf("\n\nFIM");
-	free_arr(temp);
+	free_arr(temp, map->height);
 	return 1;
-}
+} */
