@@ -148,7 +148,7 @@ static char **copy_map(char **map, int height)
 	char **temp;
 	int i;
 
-	if (!map)
+	if (!map || height <= 0)
 		return (NULL);
 	temp = (char **)malloc(sizeof(char *) * (height + 1));
 	if (!temp)
@@ -170,6 +170,8 @@ static char **copy_map(char **map, int height)
 
 int check_valid_path(t_map *map)
 {
+	if (!map)
+		return (-1);
 	char **temp;
 	temp = copy_map(map->map, map->height);
 	if (!temp)
@@ -184,3 +186,4 @@ int check_valid_path(t_map *map)
 	free_arr(temp, map->height);
 	return 1;
 }
+

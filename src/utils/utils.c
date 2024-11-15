@@ -55,7 +55,7 @@ void	free_arr(char **arr, int height)
 	free(arr);
 	/* return (NULL); */
 }
-/* 
+
 void *my_malloc(size_t size) 
 {
 	int malloc_fail_counter = 0;  // Número de chamadas antes de falhar
@@ -63,4 +63,4 @@ void *my_malloc(size_t size)
         return NULL;  // Força falha de alocação
     }
     return malloc(size);
-} */
+}

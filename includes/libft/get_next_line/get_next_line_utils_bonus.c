@@ -6,7 +6,7 @@
 /*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 02:21:58 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 22:47:56 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/15 01:48:39 by rafael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,6 @@ char	*free_gnl(char *gnl)
 		free(gnl);
 	return (NULL);
 }
+
+//VERIFICAR USO DE STRDUP QUANDO !s1 ou !s2
+//free necessario quando strjoin(null, line[fd]);

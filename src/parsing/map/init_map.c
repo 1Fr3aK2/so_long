@@ -3,7 +3,7 @@
 void	check_valid_map(t_map *map, t_data *data)
 {
 	if (!map || !data)
-		return ;
+		exit_error(data, "CHECK_MAP : Invalid pointer to map or struct\n");
 	if (check_format(map) != 1)
 		exit_error(data, "CHECK_FORMAT/RECTANGULAR : RECTANGULAR ERROR\n");
 	else
@@ -32,11 +32,13 @@ void	check_valid_map(t_map *map, t_data *data)
 		exit_error(data, "CHECK_FORMAT/VALID_PATH : VALID_PATH ERROR\n");
 	else
 		ft_putstr_fd("CHECK_FORMAT/VALID_PATH : PASSED\n", 2);
-	
+	ft_putstr_fd("CHECK_VALID_MAP : PASSED\n", 2);	
 }
 
 void	init_map(char *file, t_data *data)
 {
+	/* (void)data;
+	(void)file; */
 	check_map_name(file);
 	get_lines(data, file);
 	get_map(file, data);

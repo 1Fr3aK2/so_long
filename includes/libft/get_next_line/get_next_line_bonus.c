@@ -6,7 +6,7 @@
 /*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 02:22:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 22:41:05 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/15 02:01:04 by rafael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	if (!gnl)
 		return (NULL);
 	gnl[0] = '\0';
-	gnl = ft_strjoin_line(gnl, NULL);
+	gnl = ft_strjoin_line(gnl, line[fd]);
 	if (check_and_clear(line[fd]) == 1)
 		return (gnl);
 	bytes_read = read(fd, line[fd], BUFFER_SIZE);

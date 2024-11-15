@@ -5,7 +5,7 @@ void	get_lines(t_data *data, char *file_name)
 	static char	*line;
 
 	if (!data || !file_name)
-		return ;
+		exit_error(NULL, "GET_LINES : Invalid pointer to file name or struct\n");
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
 		exit_error(NULL, "GET_LINES : Error opening the file\n");
@@ -19,6 +19,7 @@ void	get_lines(t_data *data, char *file_name)
 	printf("height : %d\n", data->map.height);
 	printf("width : %d\n", data->map.width);
 	close(data->file.fd);
+	ft_putstr_fd("get_lines passed\n", 2);
 }
 
 void	get_map(char *file_name, t_data *data)
@@ -27,6 +28,8 @@ void	get_map(char *file_name, t_data *data)
 	int		i;
 
 	i = 0;
+	if (!file_name || !data)
+		exit_error(NULL, "GET_MAP : Invalid pointer to file name or struct\n");
 	if (data->map.height <= 0)
 		exit_error(NULL, "GET_MAP : Invalid number of lines\n");
 	data->file.fd = open(file_name, O_RDONLY);
@@ -64,4 +67,5 @@ void	get_map(char *file_name, t_data *data)
 		write(1, data->map.map[j], ft_strlen(data->map.map[j]));
 	}
 	data->map.map[i] = NULL;
+	ft_putstr_fd("GET_MAP : passed\n", 2);
 }
