@@ -93,3 +93,68 @@ STRUCT_MAP :
     -> exit_x = coordenada (linha) da saida;
 
 MELHORAR ESTRUTURA PLAYER, ACRESCENTAR COORDENADAS DE SAIDA ??? 
+
+
+
+/* static int flood_fill_map(char **map, int y, int x)
+{
+	t_map *map_origin;
+	int collectibles;
+	int	exit;
+
+	exit = 0;
+	collectibles = 0;
+	if (!map || x < 1 || y < 1)
+		return (-1);
+	if (map[y][x] == WALLS || map[y][x] == '2')
+		return 1;
+	exit = map_origin->exit;
+	collectibles = map_origin->collectibles;
+	if (map[y][x] == COLLECTIBLE)
+		collectibles--;
+	if (map[y][x] == EXIT)
+	{
+		exit--;
+		if (exit != 0)
+			return (-1);
+		return 1;
+	} 
+	map[y][x] = '2';
+	flood_fill_map(map, y - 1, y);
+	flood_fill_map(map, y + 1, y);
+	flood_fill_map(map, y, x + 1);
+	flood_fill_map(map, y, x - 1);
+	return (1);
+} 
+
+
+static void flood_fill(char **map, t_data *data)
+{
+	if (!map || !data)
+		return ;
+	if (data->map.collectibles != 0 || data->map.exit !=)
+	
+} */
+int check_valid_path(t_map *map, t_temp_map *temp_map)
+{
+	/*t_temp_map temp_map; */
+	if (!map || !temp_map)
+		return (-1);
+	temp_map->map = copy_map(map->map, map->height);
+	if (!temp_map->map)
+		return (-1);
+	printf("MAPA: \n\n");
+	for (int j = 0; j < map->height; j++)
+	{
+		if (temp_map->map[j]) 
+			write(1, temp_map->map[j], ft_strlen(temp_map->map[j]));
+	}
+	/* if (flood_fill_map(temp_map->map, altura, width) != 1)
+	{
+		printf("FLOOD_FILL ERROR\n");
+		return (-1);
+	} */
+	printf("\n\nFIM!\n");
+	free_arr(temp_map->map, map->height);
+	return 1;
+}

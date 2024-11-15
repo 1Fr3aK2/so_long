@@ -197,20 +197,29 @@ static char **copy_map(char **map, int height)
 	return (temp);
 }
 
-static int flood_fill_map(char **map, int x, int y)
-{
-	/* t_map *map; */
+/* static void flood_fill_map(char **map, int y, int x, int check_coll)
+{	
+	if (!map || x < 1 || y < 1 || check_coll < 1)
+		return ;
+	if (map[y][x] == WALLS || map[y][x] == '2')
+		return ;
+	if (map[y][x] == COLLECTIBLE)
+		check_coll--;
+	if (map[y][x] == EXIT)
+	{
+		return ;
+	} 
+	map[y][x] = '2';
+	flood_fill_map(map, y - 1, y, check_coll);
+	flood_fill_map(map, y + 1, y, check_coll);
+	flood_fill_map(map, y, x + 1, check_coll);
+	flood_fill_map(map, y, x - 1, check_coll);
+} */
 
-	if (!map || x < 1 || y < 1)
-		return (-1);
-	(void)x;
-	(void)y;
-	return (1);
-}
 int check_valid_path(t_map *map)
 {
 	if (!map)
-		return (-1);
+		return -1;
 	char **temp;
 	temp = copy_map(map->map, map->height);
 	if (!temp)
@@ -221,11 +230,8 @@ int check_valid_path(t_map *map)
 		if (temp[j]) 
 			write(1, temp[j], ft_strlen(temp[j]));
 	}
-	if (flood_fill_map(temp, 3, 3) != 1)
-	{
-		printf("FLOOD_FILL ERROR\n");
-		return (-1);
-	}
+	map->check_coll = map->collectibles;
+	/* flood_fill_map(temp, map->height, map->width, map->check_coll); */
 	printf("\n\nFIM!\n");
 	free_arr(temp, map->height);
 	return 1;

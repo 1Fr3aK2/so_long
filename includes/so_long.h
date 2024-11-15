@@ -39,6 +39,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		collectibles;
+	int		check_coll;
 	int		start_pos;
 	int		exit;
 	int		exit_x;
@@ -63,6 +64,7 @@ typedef struct s_data
 	t_image	image;
 	t_map	map;
 	t_file	file;
+	t_player player;
 }				t_data;
 
 //parsing/file
