@@ -1,4 +1,33 @@
 #include "../../../includes/so_long.h"
+void get_positions(t_map *map)
+{
+	t_player player;
+
+	if (!map)
+		return ;
+	int i = 0;
+	while (i < map->height)
+	{
+		int j = 0;
+		while(map->map[i][j] && j < map->width)
+		{
+			if (map->map[i][j] == START_POS)
+			{
+				player.x = j;
+				player.y = i;
+			}
+			else if (map->map[i][j] == EXIT)
+			{
+				map->exit_x = j;
+				map->exit_y = i;
+			}
+			j++;
+		}
+		i++;
+	}
+	printf("\nplayer.x(linha) : %d\nplayer.y(altura) : %d\n\n", player.x, player.y);
+	printf("\nexit.x(linha) : %d\nexit.y(altura) : %d\n\n", map->exit_x, map->exit_y);
+}
 
 int	valid_chars(t_map *map)
 {
@@ -168,16 +197,16 @@ static char **copy_map(char **map, int height)
 	return (temp);
 }
 
-/* static int flood_fill_map(char **map, int x, int y)
+static int flood_fill_map(char **map, int x, int y)
 {
-	t_map *map;
+	/* t_map *map; */
 
-	if (!map || !(*map) || x < 1 || y < 1)
+	if (!map || x < 1 || y < 1)
 		return (-1);
 	(void)x;
 	(void)y;
 	return (1);
-} */
+}
 int check_valid_path(t_map *map)
 {
 	if (!map)
@@ -192,11 +221,11 @@ int check_valid_path(t_map *map)
 		if (temp[j]) 
 			write(1, temp[j], ft_strlen(temp[j]));
 	}
-	/* if (flood_fill_map(temp, 3, 3) != 1)
+	if (flood_fill_map(temp, 3, 3) != 1)
 	{
 		printf("FLOOD_FILL ERROR\n");
 		return (-1);
-	} */
+	}
 	printf("\n\nFIM!\n");
 	free_arr(temp, map->height);
 	return 1;

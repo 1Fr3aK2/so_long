@@ -41,6 +41,8 @@ typedef struct s_map
 	int		collectibles;
 	int		start_pos;
 	int		exit;
+	int		exit_x;
+	int		exit_y;
 }				t_map;
 
 typedef struct s_file
@@ -53,6 +55,7 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
+
 }				t_player;
 
 typedef struct s_data
@@ -77,7 +80,7 @@ int 	check_valid_path(t_map *map);
 //parsing/get_map
 void	get_lines(t_data *data, char *file_name);
 void	get_map(char *file_name, t_data *data);
-
+void	get_positions(t_map *map);
 //parsing/init_map
 void	check_valid_map(t_map *map, t_data *data);
 void	init_map(char *file, t_data *data);
