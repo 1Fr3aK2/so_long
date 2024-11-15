@@ -168,6 +168,16 @@ static char **copy_map(char **map, int height)
 	return (temp);
 }
 
+/* static int flood_fill_map(char **map, int x, int y)
+{
+	t_map *map;
+
+	if (!map || !(*map) || x < 1 || y < 1)
+		return (-1);
+	(void)x;
+	(void)y;
+	return (1);
+} */
 int check_valid_path(t_map *map)
 {
 	if (!map)
@@ -182,8 +192,12 @@ int check_valid_path(t_map *map)
 		if (temp[j]) 
 			write(1, temp[j], ft_strlen(temp[j]));
 	}
+	/* if (flood_fill_map(temp, 3, 3) != 1)
+	{
+		printf("FLOOD_FILL ERROR\n");
+		return (-1);
+	} */
 	printf("\n\nFIM!\n");
 	free_arr(temp, map->height);
 	return 1;
 }
-

@@ -1,7 +1,7 @@
 GNL -> STRJOIN (NULL, LINE[FD])
 
 INIT_STRUCT :
-->inializar com 0's a struct;
+->inializar com 0's a struct; -> feito;
 
 CHECK_MAP_NAME :
 ->pointeiro valido  -> feito
@@ -32,7 +32,6 @@ CHECK_VALID_MAP :
             -> enquanto i for menor que height -> feito
         -> VALID CHARS :
             -> checkar pointers validos -> feito;
-
         -> CHECK_WALLS :
             -> checkar pointers validos -> feito;
         -> CHECK_COLLECTIBLES :
@@ -44,9 +43,12 @@ CHECK_VALID_MAP :
         -> CHECK_VALID_PATH :
             -> checkar pointers validos -> feito;
             ->checkar se a copia retorna null -> feito;
+            ->checkat se flood_fill_map retorna erro -> feito;
                 ->COPY_MAP :
                     -> ponteiros validos e altura valida -> feito;
                     -> falha malloc -> feito;
+                -> FLOOD_FILL_MAP
+                    ->verificar ponteiros válidos e coordenadas validas -> feito;
 
 
 FT_STRDUP :
@@ -80,3 +82,8 @@ UTILS :
         -> pointers validos -> feito;
         -> libertar enquanto i < height , verificar validade de arr -> feito;
         -> libertar arr -> feito;
+
+
+STRUCT_PLAYER:
+    -> int x -> linhas(width);
+    -> int y -> altura(height);

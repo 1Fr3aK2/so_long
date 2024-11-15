@@ -49,10 +49,11 @@ typedef struct s_file
 	char		*file_name;
 }				t_file;
 
-/* typedef struct s_arr
+typedef struct s_player
 {
-	s_map char	**map;
-}				t_arr; */
+	int			x;
+	int			y;
+}				t_player;
 
 typedef struct s_data
 {
