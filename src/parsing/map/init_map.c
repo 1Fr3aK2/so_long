@@ -43,7 +43,7 @@ void	init_map(char *file, t_data *data)
 	get_lines(data, file);
 	get_map(file, data);
 	check_valid_map(&data->map, data);
-	get_positions(&data->map);
+	get_positions(NULL);
 	close_fds(0);
 	check_open_fds();
 	free_arr(data->map.map, data->map.height);

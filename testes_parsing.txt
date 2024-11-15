@@ -87,3 +87,9 @@ UTILS :
 STRUCT_PLAYER:
     -> int x -> linhas(width);
     -> int y -> altura(height);
+
+STRUCT_MAP :
+    -> exit_y = coordenada (altura) da saida;
+    -> exit_x = coordenada (linha) da saida;
+
+MELHORAR ESTRUTURA PLAYER, ACRESCENTAR COORDENADAS DE SAIDA ??? 
