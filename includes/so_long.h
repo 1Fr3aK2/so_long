@@ -17,10 +17,10 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "../includes/libft/libft.h"
-# include "../includes/libft/ft_printf/ft_printf.h"
-# include "../includes/libft/get_next_line/get_next_line_bonus.h"
-# include "../includes/minilibx-linux/mlx.h"
+# include "../libraries/libft/libft.h"
+# include "../libraries/libft/ft_printf/ft_printf.h"
+# include "../libraries/libft/get_next_line/get_next_line_bonus.h"
+# include "../libraries/minilibx-linux/mlx.h"
 # include "X11/X.h"
 # include "X11/keysym.h"
 
@@ -42,6 +42,7 @@ typedef struct s_map
 	int		check_coll;
 	int		start_pos;
 	int		exit;
+	int		check_exit;
 	int		exit_x;
 	int		exit_y;
 }				t_map;
@@ -61,41 +62,50 @@ typedef struct s_player
 
 typedef struct s_data
 {
-	t_image	image;
-	t_map	map;
-	t_file	file;
-	t_player player;
+	t_image		image;
+	t_map		map;
+	t_file		file;
+	t_player	player;
 }				t_data;
-
-//parsing/file
-void	check_map_name(char *file_name);
-
-//parsing/check_map
-int		valid_chars(t_map *map);
-int		check_walls(t_map *map);
-int		check_collectibles(t_map *map);
-int		check_start_pos(t_map *map);
-int		check_exit(t_map *map);
-int		check_format(t_map *map);
-int 	check_valid_path(t_map *map);
-
-//parsing/get_map
-void	get_lines(t_data *data, char *file_name);
-void	get_map(char *file_name, t_data *data);
-void	get_positions(t_map *map);
-//parsing/init_map
-void	check_valid_map(t_map *map, t_data *data);
-void	init_map(char *file, t_data *data);
-
-//init
-void	init_struct(t_data *data);
 
 //errors
 void	exit_error(t_data *data, char *str);
 
+//init
+void	init_struct(t_data *data);
+
+//parsing/file
+void	check_map_name(char *file_name);
+
+//parsing/check_map/check_map
+void	check_valid_map(t_map *map, t_data *data);
+
+//parsing/check_map/check_map_utils
+int		check_format(t_map *map);
+int		valid_chars(t_map *map);
+int		check_walls(t_map *map);
+int		check_collectibles(t_map *map);
+int		check_exit(t_map *map);
+int		check_start_pos(t_map *map);
+void	get_positions(t_map *map, t_data *data);
+
+//parsing/check_map/check_temp_map
+char	**copy_map(char **map, int height);
+void	flood_fill_map(char **map, int y, int x, t_data *data);
+void	check_flood_fill(char **map, t_data *data);
+int		check_valid_path(t_map *map, t_data *data);
+
+//parsing/get_map
+void	get_lines(t_data *data, char *file_name);
+void	get_map(char *file_name, t_data *data);
+
+//parsing/init_map
+void	init_map(char *file, t_data *data);
+
 //utils 
 void	close_fds(int i);
 void	free_arr(char **arr, int height);
+void	free_temp_map(char **map);
 
 //test_functions
 void	check_open_fds(void);

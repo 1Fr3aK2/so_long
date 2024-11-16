@@ -26,20 +26,6 @@ void	close_fds(int i)
 	}
 }
 
-void	check_open_fds(void)
-{
-	int	fd;
-	// F_GETFD retorna -1 se o FD não está em uso
-
-	for (fd = 3; fd < 1024; ++fd)
-	{
-		if (fcntl(fd, F_GETFD) != -1)
-		{
-			printf("\nFD %d is still open\n", fd);
-		}
-	}
-}
-
 void	free_arr(char **arr, int height)
 {
 	int	i;
@@ -56,6 +42,23 @@ void	free_arr(char **arr, int height)
 	/* return (NULL); */
 }
 
+void free_temp_map(char **map)
+{
+	int	i;
+
+	if (!map)
+		return ;
+	i = 0;
+	while(map[i])
+	{
+		free(map[i]);
+		map[i] = NULL;
+		i++;
+	}
+	free(map);
+	map = NULL;
+}
+
 void *my_malloc(size_t size) 
 {
 	int malloc_fail_counter = 0;  // Número de chamadas antes de falhar
@@ -63,4 +66,17 @@ void *my_malloc(size_t size)
         return NULL;  // Força falha de alocação
     }
     return malloc(size);
+}
+void	check_open_fds(void)
+{
+	int	fd;
+	// F_GETFD retorna -1 se o FD não está em uso
+
+	for (fd = 3; fd < 1024; ++fd)
+	{
+		if (fcntl(fd, F_GETFD) != -1)
+		{
+			printf("\nFD %d is still open\n", fd);
+		}
+	}
 }

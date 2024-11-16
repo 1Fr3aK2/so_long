@@ -1,7 +1,10 @@
-SRCS = src/main/main.c \
+SRCS = main/main.c \
        src/parsing/file/check_file.c \
-	   src/parsing/map/check_map.c  \
-	   src/parsing/map/get_map.c \
+	   src/parsing/map/check_map/check_map.c  \
+	   src/parsing/map/check_map/check_map_utils.c  \
+	   src/parsing/map/check_map/check_map_utils2.c  \
+	   src/parsing/map/check_temp_map/check_temp_map.c	\
+	   src/parsing/map/get_map/get_map.c \
 	   src/parsing/map/init_map.c \
 	   src/init/init.c \
 	   src/utils/utils.c \
@@ -22,16 +25,16 @@ OBJ_DIR = obj
 # Lista de arquivos .o correspondentes aos .c
 OBJS = $(SRCS:src/%.c=$(OBJ_DIR)/%.o)
 
-LIBFT_DIR = ./includes/libft
+LIBFT_DIR = ./libraries/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-FT_PRINTFDIR = ./includes/libft/ft_printf
+FT_PRINTFDIR = ./libraries/libft/ft_printf
 FT_PRINT = $(FT_PRINTFDIR)/libftprintf.a
 
-GNL_DIR = ./includes/libft/get_next_line
+GNL_DIR = ./libraries/libft/get_next_line
 GNL = $(GNL_DIR)/get_next_line
 
-MLX_DIR = ./includes/minilibx-linux
+MLX_DIR = ./libraries/minilibx-linux
 MLX = $(MLX_DIR)/libmlx.a
 
 # Adiciona as flags para o MinilibX e as bibliotecas de X11

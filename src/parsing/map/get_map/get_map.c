@@ -1,4 +1,4 @@
-#include "../../../includes/so_long.h"
+#include "../../../../includes/so_long.h"
 
 void	get_lines(t_data *data, char *file_name)
 {
