@@ -9,6 +9,7 @@ SRCS = main/main.c \
 	   src/init/init.c \
 	   src/utils/utils.c \
 	   src/errors/errors.c \
+	   src/game/init_game.c \
 
 NAME = so_long
 

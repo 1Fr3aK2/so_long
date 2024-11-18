@@ -66,10 +66,17 @@ typedef struct s_data
 	t_map		map;
 	t_file		file;
 	t_player	player;
+	void		*mlx_ptr;
+	int			screen_size;
+	int			screen_width;
+	void		*window_ptr;
 }				t_data;
 
 //errors
 void	exit_error(t_data *data, char *str);
+
+//game
+void    init_game(t_data *data);
 
 //init
 void	init_struct(t_data *data);
@@ -106,6 +113,7 @@ void	init_map(char *file, t_data *data);
 void	close_fds(int i);
 void	free_arr(char **arr, int height);
 void	free_temp_map(char **map);
+
 
 //test_functions
 void	check_open_fds(void);

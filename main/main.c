@@ -22,6 +22,7 @@ int	main(int argc, char *argv[])
 	printf("start_pos : %d\n", data.map.start_pos);
 	printf("collectibles : %d\n", data.map.collectibles);
 	printf("exit : %d\n", data.map.exit);
+	init_game(&data);
 	return (0);
 }
 
