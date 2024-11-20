@@ -1,2 +1,7 @@
 CRIAR UM VOID * PARA GUARDAR A LIGACAO
     MLX_INIT()
+
+MLX_GET_SCREEN_SIZE() -> Esta função obtém a largura e altura máximas permitidas para a janela do jogo. 
+                        Isso depende do monitor ou das configurações do sistema
+
+

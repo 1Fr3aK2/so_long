@@ -53,7 +53,7 @@ void	check_flood_fill(char **map, t_data *data)
 		free_temp_map(map);
 		exit_error(data, "CHECK_FLOOD_FILL : elements inacessible 2 the player\n");
 	}
-	/* free_temp_map(map); */ //DESCOMENTAR !!!!
+	free_temp_map(map); //DESCOMENTAR !!!!
 	printf("check_flood_fill passed\n");
 }
 
@@ -70,15 +70,15 @@ int	check_valid_path(t_map *map, t_data *data)
 	map->check_coll = map->collectibles;
 	flood_fill_map(temp, data->player.y, data->player.x, data);
 	check_flood_fill(temp, data); //MELHORAR
-	int j = 0;
+/* 	int j = 0;
 	while (j < map->height)
 	{
 		if (temp[j])
 			write(1, temp[j], ft_strlen(temp[j]));
 		j++;
 	}
-	temp[j] = NULL;
+	temp[j] = NULL; */
 	printf("\n\nFIM!\n");
-	free_arr(temp, map->height); //COMENTAR !!!! ->comentar porque liberta-se em check_flood_fill
+	/* free_arr(temp, map->height); */ //COMENTAR !!!! ->comentar porque liberta-se em check_flood_fill
 	return (1);
 }

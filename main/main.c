@@ -1,5 +1,43 @@
 #include "../includes/so_long.h"
 
+/* static int	animation(t_data *data)
+{
+	static int	flag_colletc1 = 0;
+	int			y;
+	int			x;
+
+	y = -1;
+	while (data->map.map[++y])
+	{
+		x = 0;
+		while (data->map.map[y][x])
+		{
+			if (data->map.map[y][x] == 'C')
+			{
+				if (flag_colletc1 == 0)
+					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+						data->sprites.collectibles.img, x * 64, y * 64);
+				else
+					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+						data->sprites.collectibles.img, x * 64, y * 64);
+			}
+			x++;
+		}
+	}
+	flag_colletc1 = !flag_colletc1;
+	usleep(500000);
+	return (0);
+} */
+
+
+
+
+
+
+
+
+
+
 int	main(int argc, char *argv[])
 {
 	t_data	data;
@@ -10,6 +48,7 @@ int	main(int argc, char *argv[])
 			2);
 		return (1);
 	}
+	/* printf("screen_width: %d screen_size: %d\n", data.screen_width, data.screen_size); */
 	init_struct(&data);
 	printf("width : %d\n", data.map.width);
 	printf("height : %d\n", data.map.height);
@@ -22,7 +61,12 @@ int	main(int argc, char *argv[])
 	printf("start_pos : %d\n", data.map.start_pos);
 	printf("collectibles : %d\n", data.map.collectibles);
 	printf("exit : %d\n", data.map.exit);
-	init_game(&data);
+	free_arr(data.map.map, data.map.height); //vai ser libertado em main;
+/* 	init_game(&data);
+	mlx_loop(data.mlx_ptr); */
+	/* mlx_string_put(data.mlx_ptr, data.window_ptr, 15, 15, 16777215, "0");
+	mlx_loop_hook(data.mlx_ptr, animation, &data); */
+	/* mlx_loop(data.mlx_ptr); */
 	return (0);
 }
 

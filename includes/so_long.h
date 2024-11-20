@@ -28,6 +28,8 @@ typedef struct s_image
 {
 	void	*img;
 	char	*addr;
+	int		width;
+	int		height;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -57,8 +59,21 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
+	t_image		p_f;
+	t_image		p_b;
+	t_image		p_r;
+	t_image		p_l;
 
 }				t_player;
+
+typedef struct s_sprites
+{
+	t_image	player;
+	t_image	wall;
+	t_image floor;
+	t_image exit;
+	t_image	collectibles;
+}				t_sprites;
 
 typedef struct s_data
 {
@@ -66,6 +81,7 @@ typedef struct s_data
 	t_map		map;
 	t_file		file;
 	t_player	player;
+	t_sprites	sprites;
 	void		*mlx_ptr;
 	int			screen_size;
 	int			screen_width;

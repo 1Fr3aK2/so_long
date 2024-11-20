@@ -36,10 +36,11 @@ void	free_arr(char **arr, int height)
 	while (i < height && arr[i])
 	{
 		free(arr[i]);
+		arr[i] = NULL;
 		i++;
 	}
 	free(arr);
-	/* return (NULL); */
+	arr = NULL;
 }
 
 void free_temp_map(char **map)
