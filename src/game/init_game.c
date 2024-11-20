@@ -17,8 +17,13 @@ static void draw_elements(t_data *data)
                 mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.wall.img, x * 64, y * 64);
             if (data->map.map[y][x] == EXIT)
                 mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.exit.img, x * 64, y * 64);
-            /* if (data->map.map[y][x] == START_POS)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.player.img, x * 64, y * 64); */
+            if (data->map.map[y][x] == START_POS)
+            {
+                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.floor.img, x * 64, y * 64);
+                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.player.img, x * 64, y * 64);
+            }
+            if (data->map.map[y][x] == SPACE)
+                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.floor.img, x * 64, y * 64);
             x++;
         }
         y++;
@@ -30,8 +35,10 @@ static void load_sprites(t_data *data)
         return ;
     data->sprites.wall.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/walls/walls.xpm", &data->sprites.wall.width, &data->sprites.wall.height);
     data->sprites.exit.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/exit/exit.xpm", &data->sprites.exit.width, &data->sprites.exit.height);  
-    data->sprites.player.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/player/player.xpm", &data->sprites.player.width, &data->sprites.player.height);
-    if (!data->sprites.wall.img || !data->sprites.exit.img || !data->sprites.player.img)
+    data->sprites.player.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/player/player_right.xpm", &data->sprites.player.width, &data->sprites.player.height);
+    data->sprites.floor.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/floor/floor.xpm", &data->sprites.floor.width, &data->sprites.floor.height);
+    /* data->sprites.collectibles.img = mlx_xpm_file_to_image(data->mlx_ptr, "assets/collectibles/collectibles.xpm", &data->sprites.collectibles.width, &data->sprites.collectibles.height); */
+    if (!data->sprites.wall.img || !data->sprites.exit.img || !data->sprites.player.img || !data->sprites.floor.img/*  || !data->sprites.collectibles.img */)
         exit_error(data, "LOAD_SPRITES: ERROR LOADING WALL IMAGE\n");
 
 }

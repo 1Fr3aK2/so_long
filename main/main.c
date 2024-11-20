@@ -61,12 +61,12 @@ int	main(int argc, char *argv[])
 	printf("start_pos : %d\n", data.map.start_pos);
 	printf("collectibles : %d\n", data.map.collectibles);
 	printf("exit : %d\n", data.map.exit);
-	free_arr(data.map.map, data.map.height); //vai ser libertado em main;
-/* 	init_game(&data);
-	mlx_loop(data.mlx_ptr); */
+	init_game(&data);
+	mlx_loop(data.mlx_ptr);
 	/* mlx_string_put(data.mlx_ptr, data.window_ptr, 15, 15, 16777215, "0");
 	mlx_loop_hook(data.mlx_ptr, animation, &data); */
 	/* mlx_loop(data.mlx_ptr); */
+	/* free_arr(data.map.map, data.map.height); //vai ser libertado em main; */
 	return (0);
 }
 

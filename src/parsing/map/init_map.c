@@ -6,7 +6,7 @@ void	init_map(char *file, t_data *data)
 	(void)file; */
 	if (!file || !data)
 		return ;
-	check_map_name(NULL);
+	check_map_name(file);
 	get_lines(data, file);
 	get_map(file, data);
 	check_valid_map(&data->map, data); //fix null data; -> QUANDO CHEGA ALI E IMPOSSIVEL SER NULL
