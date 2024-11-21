@@ -10,6 +10,8 @@ SRCS = main/main.c \
 	   src/utils/utils.c \
 	   src/errors/errors.c \
 	   src/game/init_game.c \
+	   src/game/images/load_images.c \
+	   src/game/animations/load_animations.c \
 
 NAME = so_long
 

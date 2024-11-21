@@ -23,6 +23,19 @@
 # include "../libraries/minilibx-linux/mlx.h"
 # include "X11/X.h"
 # include "X11/keysym.h"
+/* X11/keysymdef.h */
+
+typedef struct s_animation
+{
+	void *frames[6];
+	int	total_frames;
+	int	x;
+	int y;
+	int	current_frame;
+	int	speed;
+	int	counter;
+}				t_animation;
+
 
 typedef struct s_image
 {
@@ -59,16 +72,20 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
-	t_image		p_f;
-	t_image		p_b;
-	t_image		p_r;
-	t_image		p_l;
+	t_image		idle;
+	t_image		front;
+	t_image		back;
+	t_image		right;
+	t_image		left;
+	t_animation walk_right;
+	t_animation walk_left;
+	t_animation walk_down;
+	t_animation walk_up;
 
 }				t_player;
 
 typedef struct s_sprites
 {
-	t_image	player;
 	t_image	wall;
 	t_image floor;
 	t_image exit;
@@ -89,10 +106,19 @@ typedef struct s_data
 }				t_data;
 
 //errors
+void	free_images(t_data *data);
 void	exit_error(t_data *data, char *str);
 
 //game
 void    init_game(t_data *data);
+//game/images
+void load_player(t_data *data);
+void load_sprites(t_data *data);
+
+//game/images/animations
+void load_player_animations(t_data *data);
+void animate_player(t_animation *animation, t_data *data);
+
 
 //init
 void	init_struct(t_data *data);
