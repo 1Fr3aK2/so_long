@@ -6,6 +6,8 @@
             return ;
         if (key == XK_w || key == XK_Up)
         {
+            if (data->map.map[data->player.y - 1][data->player.x] == EXIT && data->map.collectibles != 0)
+                return ;
             if (data->map.map[data->player.y - 1][data->player.x] != WALLS)
             {
                 data->player.y--;
@@ -16,6 +18,8 @@
         }
         else if (key == XK_s || key == XK_Down)
         {
+            if (data->map.map[data->player.y + 1][data->player.x] == EXIT && data->map.collectibles != 0)
+                return ;
             if (data->map.map[data->player.y + 1][data->player.x] != WALLS)
             {
                 data->player.y++;
@@ -26,6 +30,8 @@
         }
         else if (key == XK_a || key == XK_Left)
         {
+            if (data->map.map[data->player.y][data->player.x - 1] == EXIT && data->map.collectibles != 0)
+                return ;
             if (data->map.map[data->player.y][data->player.x - 1] != WALLS)
             {
                 data->player.x--;
@@ -36,6 +42,8 @@
         }
         else if (key == XK_d || key == XK_Right)
         {
+            if (data->map.map[data->player.y][data->player.x + 1] == EXIT && data->map.collectibles != 0)
+                return ;
             if (data->map.map[data->player.y][data->player.x + 1] != WALLS)
             {
                 data->player.x++;
@@ -58,7 +66,9 @@
             data->map.collectibles--;
         }
         if (data->map.map[data->player.y][data->player.x] == EXIT && data->map.collectibles == 0)
-            exit_error(data, "leaving\n");  
+            exit_error(data, "leaving\n");
+        else if (data->map.map[data->player.y][data->player.x] == EXIT && data->map.collectibles != 0)  
+            return ;
     }
 
     int press_X(t_data *data)
