@@ -25,18 +25,6 @@
 # include "X11/keysym.h"
 /* X11/keysymdef.h */
 
-typedef struct s_animation
-{
-	void *frames[6];
-	int	total_frames;
-	int	x;
-	int y;
-	int	current_frame;
-	int	speed;
-	int	counter;
-}				t_animation;
-
-
 typedef struct s_image
 {
 	void	*img;
@@ -46,7 +34,19 @@ typedef struct s_image
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	void	*images[6];
 }				t_image;
+
+typedef struct s_animation
+{
+	t_image	frames;
+	int	total_frames;
+	int	x;
+	int y;
+	int	current_frame;
+	int	speed;
+	int	counter;
+}				t_animation;
 
 typedef struct s_map
 {
@@ -100,25 +100,38 @@ typedef struct s_data
 	t_player	player;
 	t_sprites	sprites;
 	void		*mlx_ptr;
+	void		*window_ptr;
 	int			screen_size;
 	int			screen_width;
-	void		*window_ptr;
+	int			moves;
 }				t_data;
 
 //errors
-void	free_images(t_data *data);
 void	exit_error(t_data *data, char *str);
+void	free_images(t_data *data);
+void	free_player(t_data *data);
 
 //game
+int 	game_loop(t_data *data);
 void    init_game(t_data *data);
+
+//game/draw
+void	draw_player(int key, t_data *data);
+void	draw_hud(t_data *data);
+void	draw_elements(t_data *data);
+
 //game/images
-void load_player(t_data *data);
-void load_sprites(t_data *data);
+void	load_player(t_data *data);
+void	load_sprites(t_data *data);
 
-//game/images/animations
-void load_player_animations(t_data *data);
-void animate_player(t_animation *animation, t_data *data);
+//game/animations
+void	load_player_animations(t_data *data);
+void	animate_player(t_animation *animation, t_data *data);
 
+//game/keys
+int		handle_key(int key, t_data *data);
+int		press_X(t_data *data);
+void	move_player(int key, t_data *data);
 
 //init
 void	init_struct(t_data *data);

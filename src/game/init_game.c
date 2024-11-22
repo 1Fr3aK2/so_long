@@ -1,54 +1,25 @@
 #include "../../includes/so_long.h"
 
-static void draw_elements(t_data *data)
+int game_loop(t_data *data)
 {
-    int y;
-    int x;
-    
+    static int frame;
+    frame = 0;
+
     if (!data)
-        return ;
-    y = 0;
-    while (data->map.map[y])
+        return (0);
+    // Incrementa o frame para animações
+    frame++;
+    if (frame >= 30) // Atualiza a cada 30 ciclos
     {
-        x = 0;
-        while(data->map.map[y][x])
-        {
-            if (data->map.map[y][x] == WALLS)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.wall.img, x * 64, y * 64);
-            if (data->map.map[y][x] == EXIT)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.exit.img, x * 64, y * 64);
-            if (data->map.map[y][x] == SPACE)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.floor.img, x * 64, y * 64);
-            if (data->map.map[y][x] == COLLECTIBLE)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.collectibles.img, x * 64, y * 64);
-            x++;
-        }
-        y++;
+        frame = 0;
+        // Aqui você pode alternar sprites ou realizar animações
     }
+    // Redesenha os elementos do mapa e o jogador
+    draw_elements(data);
+    draw_player(-1, data);
+    draw_hud(data);
+    return (0);
 }
-
-
-static void draw_player(int key, t_data *data)
-{
-    (void)key;
-    if (!data)
-        return ;
-    /* if (key == XK_w || key == XK_Up)
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, , data->player.x * 64, data->player.y * 64);
-    else if (key == XK_s || key == XK_Down)
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, , data->player.x * 64, data->player.y * 64);
-    else if (key == XK_a || key == XK_Left)
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, , data->player.x * 64, data->player.y * 64); */
-    else if (key == XK_d || key == XK_Right)
-    {
-        animate_player(&data->player.walk_right, data);
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.walk_right.frames[data->player.walk_right.current_frame], data->player.x * 64, data->player.y * 64);
-    }
-    else
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.idle.img, data->player.x * 64, data->player.y * 64);
-}
-
-
 
 
 void    init_game(t_data *data)
@@ -67,7 +38,6 @@ void    init_game(t_data *data)
         exit_error(data, "INIT_MAP: ERROR CREATING WINDOW\n");  
     load_sprites(data);
     load_player(data);
-    draw_elements(data);
-    draw_player(-1 ,data);
+
 }
 

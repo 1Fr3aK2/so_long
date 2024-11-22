@@ -1,42 +1,5 @@
 #include "../includes/so_long.h"
 
-/* static int	animation(t_data *data)
-{
-	static int	flag_colletc1 = 0;
-	int			y;
-	int			x;
-
-	y = -1;
-	while (data->map.map[++y])
-	{
-		x = 0;
-		while (data->map.map[y][x])
-		{
-			if (data->map.map[y][x] == 'C')
-			{
-				if (flag_colletc1 == 0)
-					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-						data->sprites.collectibles.img, x * 64, y * 64);
-				else
-					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-						data->sprites.collectibles.img, x * 64, y * 64);
-			}
-			x++;
-		}
-	}
-	flag_colletc1 = !flag_colletc1;
-	usleep(500000);
-	return (0);
-} */
-
-
-
-
-
-
-
-
-
 
 int	main(int argc, char *argv[])
 {
@@ -62,32 +25,12 @@ int	main(int argc, char *argv[])
 	printf("collectibles : %d\n", data.map.collectibles);
 	printf("exit : %d\n", data.map.exit);
 	init_game(&data);
-	mlx_loop(data.mlx_ptr);
-	/* mlx_string_put(data.mlx_ptr, data.window_ptr, 15, 15, 16777215, "0");
-	mlx_loop_hook(data.mlx_ptr, animation, &data); */
-	/* mlx_loop(data.mlx_ptr); */
-	/* free_arr(data.map.map, data.map.height); //vai ser libertado em main; */
+	mlx_loop_hook(data.mlx_ptr, game_loop, &data);
+    mlx_key_hook(data.window_ptr, handle_key, &data);
+	mlx_hook(data.window_ptr, DestroyNotify, StructureNotifyMask, press_X, &data);
+    mlx_loop(data.mlx_ptr);
 	return (0);
 }
-
-/* int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_data  imagem;
-
-
-	mlx = mlx_init(); // iniciar uma conexao com api, iniciar minilibx
-	mlx_win = mlx_new_window(mlx, 500, 500, "fck off"); //criar uma nova janela
-	for (int y = 0; y < ALTURA - 50; ++y)
-	{
-		for (int x = 0; y < LARGURA - 50; ++x)
-		{
-			mlx_pixel_put(mlx, mlx_win, x + 200, y + 200, RED);
-		}
-	}
-	mlx_loop(mlx); // mantem o programa a correr
-} */
 
 /* 	imagem.img = mlx_new_image(mlx, 600, 4801); //inicalizar a imagem
 	imagem.addr = mlx_get_data_addr(imagem.img, &imagem.bits_per_pixel,

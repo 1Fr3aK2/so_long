@@ -7,6 +7,7 @@ void exit_error(t_data *data, char *str)
     else
         ft_putstr_fd("Error\n", 2);
     free_images(data);
+    free_player(data);
     if (data)
     {
         if (data->map.map) 
@@ -48,6 +49,21 @@ void free_images(t_data *data)
         if (data->sprites.collectibles.img)
             mlx_destroy_image(data->mlx_ptr, data->sprites.collectibles.img);
     }
+}
+void free_player(t_data *data)
+{
+    if (!data)
+        return ;
+    if (data->player.front.img)
+        mlx_destroy_image(data->mlx_ptr, data->player.front.img);
+    if (data->player.back.img)
+        mlx_destroy_image(data->mlx_ptr, data->player.back.img);
+    if (data->player.left.img)
+        mlx_destroy_image(data->mlx_ptr, data->player.left.img);
+    if(data->player.right.img)
+        mlx_destroy_image(data->mlx_ptr, data->player.right.img);
+    if (data->player.idle.img)
+        mlx_destroy_image(data->mlx_ptr, data->player.idle.img);
 }
 
 /* void	exit_error(t_data *data, char *str)
