@@ -38,6 +38,7 @@ void    init_game(t_data *data)
         exit_error(data, "INIT_MAP: ERROR CREATING WINDOW\n");  
     load_sprites(data);
     load_player(data);
+    load_player_animations(data);
 
 }
 

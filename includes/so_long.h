@@ -34,7 +34,7 @@ typedef struct s_image
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	void	*images[6];
+	void	*images[7];
 }				t_image;
 
 typedef struct s_animation
@@ -106,6 +106,7 @@ typedef struct s_data
 	int			moves;
 }				t_data;
 
+void animate_player(t_animation *animation, t_data *data);
 //errors
 void	exit_error(t_data *data, char *str);
 void	free_images(t_data *data);
