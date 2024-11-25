@@ -23,7 +23,6 @@
 # include "../libraries/minilibx-linux/mlx.h"
 # include "X11/X.h"
 # include "X11/keysym.h"
-/* X11/keysymdef.h */
 
 typedef struct s_image
 {
@@ -104,6 +103,8 @@ typedef struct s_data
 	int			screen_size;
 	int			screen_width;
 	int			moves;
+	int 		toggle_collectible;   // Para alternar entre colecionável e chão
+    int 		frame_count;
 }				t_data;
 
 void animate_player(t_animation *animation, t_data *data);

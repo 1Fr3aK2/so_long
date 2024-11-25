@@ -11,8 +11,8 @@ void	check_map_name(char *file_name)
 	if (file.fd < 0)
 		exit_error(NULL, "CHECK_MAP : Error opening the file\n");
 	len = ft_strlen(file_name);
-	if (len < 4 || ft_strncmp(&file_name[len - 4], ".ber", 4))
-		exit_error(NULL, "CHECK_MAP: Invalid map name, should be .bear\n");
+	if (len < 4 || ft_strncmp(&file_name[len - 4], ".ber", 4) != 0)
+		exit_error(NULL, "CHECK_MAP: Invalid map name, should be .ber\n");
 	else
 		ft_putstr_fd("check name passed\n", 1);
 	close(file.fd);

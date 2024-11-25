@@ -32,9 +32,3 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
-/* 	imagem.img = mlx_new_image(mlx, 600, 4801); //inicalizar a imagem
-	imagem.addr = mlx_get_data_addr(imagem.img, &imagem.bits_per_pixel,
-				&imagem.line_length, &imagem.endian); //obter o adress da imagem
-	my_pixel_put(&imagem, 100, 5, 0x00FF0000); // estrutra, linha, coluna, cor
-	mlx_put_image_to_window(mlx, mlx_win, imagem.img, 0,
-		0);// colocar a imagem na janel */
