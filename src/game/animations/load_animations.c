@@ -1,6 +1,6 @@
 #include "../../../includes/so_long.h"
 
-void load_player_animations(t_data *data)
+/* void load_player_animations(t_data *data)
 {
     if (!data)
         return;
@@ -29,7 +29,7 @@ void load_player_animations(t_data *data)
     data->player.walk_right.current_frame = 0;
     data->player.walk_right.speed = 10;
     data->player.walk_right.counter = 0;
-}
+} */
 
 
 /* void load_player_animations(t_data *data)
