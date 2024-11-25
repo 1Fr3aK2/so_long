@@ -1,6 +1,6 @@
 #include "../../../includes/so_long.h"
 
-/* void draw_elements(t_data *data)
+void draw_elements(t_data *data)
 {
     int y;
     int x;
@@ -20,35 +20,6 @@
             if (data->map.map[y][x] == SPACE  || data->map.map[y][x] == START_POS)
                 mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.floor.img, x * 64, y * 64);
             if (data->map.map[y][x] == COLLECTIBLE)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.collectibles.img, x * 64, y * 64);
-            x++;
-        }
-        y++;
-    }
-} */
-
-void draw_elements(t_data *data)
-{
-    int y;
-    int x;
-    
-    if (!data)
-        return ;
-    y = 0;
-    while (data->map.map[y])
-    {
-        x = 0;
-        while(data->map.map[y][x])
-        {
-            if (data->map.map[y][x] == WALLS)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.wall.img, x * 64, y * 64);
-            if (data->map.map[y][x] == EXIT)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.exit.img, x * 64, y * 64);
-            if (data->map.map[y][x] == SPACE || data->map.map[y][x] == START_POS)
-                mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.floor.img, x * 64, y * 64);
-            
-            // Alterna entre o colecionável e o chão
-            if (data->map.map[y][x] == COLLECTIBLE)
             {
                 if (data->toggle_collectible)
                     mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->sprites.collectibles.img, x * 64, y * 64);
@@ -60,7 +31,6 @@ void draw_elements(t_data *data)
         y++;
     }
 }
-
 
 void draw_player(int key, t_data *data)
 {
@@ -84,6 +54,7 @@ void draw_hud(t_data *data)
 {
     char    *collectibles;
     char    *moves;
+    
     if (!data)
         return;
     moves = ft_itoa(data->moves);

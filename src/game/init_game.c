@@ -3,22 +3,17 @@
 int game_loop(t_data *data)
 {
     static int frame;
-      
+
     if (!data)
         return (0);
-
-    // Incrementa o frame para animações
     frame++;
-    if (frame >= 900) // Atualiza a cada 30 ciclos
+    if (frame >= 900) 
     {
         data->toggle_collectible = !data->toggle_collectible;
         frame = 0;
     }
-
-
-    // Redesenha os elementos do mapa e o jogador
     draw_elements(data);
-    draw_player(-1, data);
+    draw_player(data->last_key, data);
     draw_hud(data);
 
     return (0);

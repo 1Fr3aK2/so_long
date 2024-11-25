@@ -105,6 +105,7 @@ typedef struct s_data
 	int			moves;
 	int 		toggle_collectible;   // Para alternar entre colecionável e chão
     int 		frame_count;
+	int			last_key;
 }				t_data;
 
 void animate_player(t_animation *animation, t_data *data);
