@@ -42,7 +42,7 @@ void draw_player(int key, t_data *data)
     {
         current_animation = &data->player.walk_right;
 
-        // Se a posição mudou, reiniciar a animação
+        // Reiniciar a animação se a posição mudou
         if (data->player.prev_x != data->player.x || data->player.prev_y != data->player.y)
         {
             current_animation->current_frame = 0;
@@ -50,7 +50,13 @@ void draw_player(int key, t_data *data)
     }
     else if (key == XK_a || key == XK_Left)
     {
-        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.left.img, data->player.x * 64, data->player.y * 64);
+        current_animation = &data->player.walk_left;
+
+        // Reiniciar a animação se a posição mudou
+        if (data->player.prev_x != data->player.x || data->player.prev_y != data->player.y)
+        {
+            current_animation->current_frame = 0;
+        }
     }
     else if (key == XK_w || key == XK_Up)
     {
@@ -61,11 +67,13 @@ void draw_player(int key, t_data *data)
         mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.back.img, data->player.x * 64, data->player.y * 64);
     }
 
+    // Desenhar a animação atual
     if (current_animation)
     {
-        // Se a animação ainda não completou, avance os quadros
+        // Verificar se a animação já foi completada
         if (current_animation->current_frame < current_animation->total_frames - 1)
         {
+            // Controla o avanço da animação até o último quadro
             current_animation->counter++;
             if (current_animation->counter >= current_animation->speed)
             {
@@ -91,6 +99,7 @@ void draw_player(int key, t_data *data)
     data->player.prev_x = data->player.x;
     data->player.prev_y = data->player.y;
 }
+
 
 
 

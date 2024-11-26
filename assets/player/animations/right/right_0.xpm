@@ -2,7 +2,7 @@
 static char *_91795d5852c480e98c2e453144d0127WwBoBJXLqNOpmw9a[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 190 2 ",
-"   c None",
+"   c #ADD8E6",
 ".  c #010401",
 "X  c #0B0402",
 "o  c #020A02",
@@ -248,7 +248,7 @@ static char *_91795d5852c480e98c2e453144d0127WwBoBJXLqNOpmw9a[] = {
 "                              # $ . W T 3 0 .                                                                                   ",
 "                              . . 2 2 0 . 6 .                                                                                   ",
 "                              . 2 + Y + 6 N .                                                                                   ",
-"                              # + + + 1 4 w 4 .                                                                                 ",
+"                              # + + + 1 4 w 4                                                                                   ",
 "                              # + 1 1 + + 4 #                                                                                   ",
 "                                                                                                                                ",
 "                                                                                                                                ",

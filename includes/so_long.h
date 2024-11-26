@@ -129,7 +129,8 @@ void	load_player(t_data *data);
 void	load_sprites(t_data *data);
 
 //game/animations
-void	load_player_animations(t_data *data);
+void	load_player_animations_right(t_data *data);
+void	load_player_animations_left(t_data *data);
 void	animate_player(t_animation *animation, t_data *data);
 
 //game/keys
