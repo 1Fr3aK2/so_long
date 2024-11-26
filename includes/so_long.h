@@ -33,12 +33,11 @@ typedef struct s_image
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	void	*images[7];
 }				t_image;
 
 typedef struct s_animation
 {
-	t_image	frames;
+	t_image	frames[7];
 	int	total_frames;
 	int	x;
 	int y;
@@ -71,6 +70,8 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
+	int			prev_x;
+	int			prev_y;
 	t_image		idle;
 	t_image		front;
 	t_image		back;

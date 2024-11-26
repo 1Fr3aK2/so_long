@@ -32,7 +32,72 @@ void draw_elements(t_data *data)
     }
 }
 
+
 void draw_player(int key, t_data *data)
+{
+    t_animation *current_animation = NULL;
+
+    // Determinar qual animação usar
+    if (key == XK_d || key == XK_Right)
+    {
+        current_animation = &data->player.walk_right;
+
+        // Se a posição mudou, reiniciar a animação
+        if (data->player.prev_x != data->player.x || data->player.prev_y != data->player.y)
+        {
+            current_animation->current_frame = 0;
+        }
+    }
+    else if (key == XK_a || key == XK_Left)
+    {
+        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.left.img, data->player.x * 64, data->player.y * 64);
+    }
+    else if (key == XK_w || key == XK_Up)
+    {
+        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.front.img, data->player.x * 64, data->player.y * 64);
+    }
+    else if (key == XK_s || key == XK_Down)
+    {
+        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.back.img, data->player.x * 64, data->player.y * 64);
+    }
+
+    if (current_animation)
+    {
+        // Se a animação ainda não completou, avance os quadros
+        if (current_animation->current_frame < current_animation->total_frames - 1)
+        {
+            current_animation->counter++;
+            if (current_animation->counter >= current_animation->speed)
+            {
+                current_animation->current_frame++;
+                current_animation->counter = 0;
+            }
+        }
+
+        // Desenhar o quadro atual da animação
+        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+                                current_animation->frames[current_animation->current_frame].img,
+                                data->player.x * 64, data->player.y * 64);
+    }
+    else
+    {
+        // Se não houver movimento, desenhar sprite parado
+        mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+                                data->player.idle.img,
+                                data->player.x * 64, data->player.y * 64);
+    }
+
+    // Atualizar a posição anterior do jogador
+    data->player.prev_x = data->player.x;
+    data->player.prev_y = data->player.y;
+}
+
+
+
+
+
+
+/* void draw_player(int key, t_data *data)
 {
     if (!data)
         return ;
@@ -47,7 +112,7 @@ void draw_player(int key, t_data *data)
 
     else
         mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->player.idle.img, data->player.x * 64, data->player.y * 64);
-}
+} */
 
 
 void draw_hud(t_data *data)
