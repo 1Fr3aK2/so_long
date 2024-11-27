@@ -83,6 +83,7 @@ typedef struct s_sprites
 	t_image	wall;
 	t_image	floor;
 	t_image	exit;
+	t_image	exit_2;
 	t_image	collectibles;
 }				t_sprites;
 

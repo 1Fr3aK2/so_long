@@ -3,19 +3,18 @@
 int	check_format(t_map *map)
 {
 	int	i;
-	int	j;
+	int	line_len;
 
 	if (!map)
 		return (-1);
 	i = 0;
-	j = 0;
 	while (i < map->height)
 	{
-		while (map->map[i][j])
-			j++;
-		if ((j - 1) != map->width)
+		line_len = ft_strlen(map->map[i]);
+		if (line_len > 0 && map->map[i][line_len - 1] == '\n')
+			line_len--;
+		if (line_len != map->width)
 			return (0);
-		j = 0;
 		i++;
 	}
 	return (1);

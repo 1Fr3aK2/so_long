@@ -17,8 +17,14 @@ void	draw_elements(t_data *data)
 				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 					data->sprites.wall.img, x * 64, y * 64);
 			if (data->map.map[y][x] == EXIT)
-				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-					data->sprites.exit.img, x * 64, y * 64);
+			{
+				if (data->map.collectibles == 0 && data->sprites.exit_2.img)
+					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+						data->sprites.exit_2.img, x * 64, y * 64);
+				else if (data->sprites.exit.img)
+					mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+						data->sprites.exit.img, x * 64, y * 64);
+			}
 			if (data->map.map[y][x] == SPACE
 				|| data->map.map[y][x] == START_POS)
 				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,

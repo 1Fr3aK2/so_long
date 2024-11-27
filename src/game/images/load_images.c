@@ -14,6 +14,11 @@ int	load_sprites(t_data *data)
 			&data->sprites.exit.height);
 	if (!data->sprites.exit.img)
 		exit_error(data, "ERROR:\nLOAD_SPRITES: ERROR LOADING EXIT IMAGE\n");
+	data->sprites.exit_2.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/exit/exit_2.xpm", &data->sprites.exit.width,
+			&data->sprites.exit.height);
+	if (!data->sprites.exit_2.img)
+		exit_error(data, "ERROR:\nLOAD_SPRITES: ERROR LOADING EXIT_2 IMAGE\n");
 	data->sprites.floor.img = mlx_xpm_file_to_image(data->mlx_ptr,
 			"assets/floor/floor.xpm", &data->sprites.floor.width,
 			&data->sprites.floor.height);

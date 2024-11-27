@@ -9,7 +9,7 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("ERROR:\n", 2);
 		ft_putstr_fd("Invalid number of arguments!!\n", 2);
 		ft_putstr_fd("Use: ./so_long map.ber\n", 2);
-		return (1);
+		return (-1);
 	}
 	init_struct(&data);
 	if (init_map(argv[1], &data) != 1)
