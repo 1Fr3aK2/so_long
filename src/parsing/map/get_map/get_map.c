@@ -39,7 +39,8 @@ void	get_map(char *file_name, t_data *data)
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
 		exit_error(NULL, "ERROR:\nGET_MAP : Error opening the file\n");
-	data->map.map = malloc(sizeof(char *) * (data->map.height + 1));
+	/* data->map.map = malloc(sizeof(char *) * (data->map.height + 1)); */
+	data->map.map = ft_calloc(data->map.height + 1, sizeof(char *));
 	if (!data->map.map)
 		exit_error(NULL, "ERROR:\nGET_MAP : Memory allocation error\n");
 	while (i < data->map.height + 1)
@@ -74,10 +75,10 @@ void	get_map(char *file_name, t_data *data)
 			data->map.height = i;
 		exit_error(data, "ERROR:\nGET_MAP : expected != real lines\n");
 	}
-	for (int j = 0; j < i; j++)
+/* 	for (int j = 0; j < i; j++)
 	{
 		write(1, data->map.map[j], ft_strlen(data->map.map[j]));
 	}
-	data->map.map[i] = NULL;
+	data->map.map[i] = NULL; */
 	ft_putstr_fd("\nGET_MAP : passed\n", 2);
 }
