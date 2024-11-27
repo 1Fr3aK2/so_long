@@ -46,6 +46,8 @@ void	free_images(t_data *data)
 			mlx_destroy_image(data->mlx_ptr, data->sprites.floor.img);
 		if (data->sprites.exit.img)
 			mlx_destroy_image(data->mlx_ptr, data->sprites.exit.img);
+		if (data->sprites.exit_2.img)
+			mlx_destroy_image(data->mlx_ptr, data->sprites.exit_2.img);
 		if (data->sprites.collectibles.img)
 			mlx_destroy_image(data->mlx_ptr, data->sprites.collectibles.img);
 	}
