@@ -1,21 +1,5 @@
 #include "../../includes/so_long.h"
 
-// funcao criada pelo user para colocar pixeis na janela
-/* static void my_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	if (!data)
-		return ;
-	dst = data->image.addr + (y * data->image.line_length + x
-			* (data->image.bits_per_pixel/8));
-	*(unsigned int *)dst = color;
-} */
-/* void init(t_data *data)
-{
-	ft_calloc(1, sizeof(t_data));
-	data->image.img =
-} */
 void	close_fds(int i)
 {
 	i = 3;
@@ -29,7 +13,7 @@ void	close_fds(int i)
 void	free_arr(char **arr, int height)
 {
 	int	i;
-	
+
 	if (!arr)
 		return ;
 	i = 0;
@@ -43,14 +27,14 @@ void	free_arr(char **arr, int height)
 	arr = NULL;
 }
 
-void free_temp_map(char **map)
+void	free_temp_map(char **map)
 {
 	int	i;
 
 	if (!map)
 		return ;
 	i = 0;
-	while(map[i])
+	while (map[i])
 	{
 		free(map[i]);
 		map[i] = NULL;
@@ -60,19 +44,20 @@ void free_temp_map(char **map)
 	map = NULL;
 }
 
-void *my_malloc(size_t size) 
+void	*my_malloc(size_t size)
 {
-	int malloc_fail_counter = 0;  // Número de chamadas antes de falhar
-    if (--malloc_fail_counter <= 0) {
-        return NULL;  // Força falha de alocação
-    }
-    return malloc(size);
+	int malloc_fail_counter = 0; // Número de chamadas antes de falhar
+	if (--malloc_fail_counter <= 0)
+	{
+		return (NULL); // Força falha de alocação
+	}
+	return (malloc(size));
 }
 void	check_open_fds(void)
 {
 	int	fd;
-	// F_GETFD retorna -1 se o FD não está em uso
 
+	// F_GETFD retorna -1 se o FD não está em uso
 	for (fd = 3; fd < 1024; ++fd)
 	{
 		if (fcntl(fd, F_GETFD) != -1)

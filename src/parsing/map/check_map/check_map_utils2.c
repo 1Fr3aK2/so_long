@@ -24,18 +24,18 @@ int	check_start_pos(t_map *map)
 	return (1);
 }
 
-void	get_positions(t_map *map, t_data *data)
+int	get_positions(t_map *map, t_data *data)
 {
 	int				i;
 	int				j;
 
 	if (!map || !data)
-		return ;
+		return (-1);
 	i = 0;
 	while (i < map->height)
 	{
-		j = 0;
-		while (map->map[i][j] && j < map->width)
+		j = -1;
+		while (map->map[i][++j] && j < map->width)
 		{
 			if (map->map[i][j] == START_POS)
 			{
@@ -47,8 +47,8 @@ void	get_positions(t_map *map, t_data *data)
 				map->exit_x = j;
 				map->exit_y = i;
 			}
-			j++;
 		}
 		i++;
 	}
+	return (1);
 }

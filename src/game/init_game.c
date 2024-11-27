@@ -5,7 +5,7 @@ int game_loop(t_data *data)
     static int frame;
 
     if (!data)
-        return (0);
+        return (-1);
     frame++;
     if (frame >= 900) 
     {
@@ -15,16 +15,13 @@ int game_loop(t_data *data)
     draw_elements(data);
     draw_player(data->last_key, data);
     draw_hud(data);
-
-    return (0);
+    return (-1);
 }
 
-
-
-void    init_game(t_data *data)
+int    init_game(t_data *data)
 {
     if (!data)
-        exit_error(data, "INIT_GAME : INVALID POINTER\n");
+        return (-1);
     data->mlx_ptr = mlx_init();
     if (!data->mlx_ptr)
         exit_error(data, "INIT_GAME : ERROR WITH MLX_INIT\n");
@@ -35,9 +32,8 @@ void    init_game(t_data *data)
     data->window_ptr = mlx_new_window(data->mlx_ptr, data->map.width * 64, data->map.height * 64, "so_long");
     if (!data->window_ptr)
         exit_error(data, "INIT_MAP: ERROR CREATING WINDOW\n");  
-    load_sprites(data);
-    load_player(data);
-    load_player_animations_right(data);
-    load_player_animations_left(data);
+    if (load_sprites(data) != 1 || load_player(data) != 1 || load_player_animations_right(data) != 1 || load_player_animations_left(data) != 1)
+        exit_error(data, "ERROR INIT_GAME: something wrong loading images\n");
+    return (1);
 }
 
