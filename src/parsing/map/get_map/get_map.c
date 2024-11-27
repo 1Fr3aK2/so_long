@@ -42,6 +42,12 @@ void	get_map(char *file_name, t_data *data)
 	data->map.map = malloc(sizeof(char *) * (data->map.height + 1));
 	if (!data->map.map)
 		exit_error(NULL, "ERROR:\nGET_MAP : Memory allocation error\n");
+	while (i < data->map.height + 1)
+	{
+		data->map.map[i] = NULL;
+		i++;
+	} //optimizar 
+	i = 0;
 	file = get_next_line(data->file.fd);
 	if (!file)
 		exit_error(data, "ERROR:\nGET_MAP : READING 1st LINE OF MAP\n");
@@ -73,5 +79,5 @@ void	get_map(char *file_name, t_data *data)
 		write(1, data->map.map[j], ft_strlen(data->map.map[j]));
 	}
 	data->map.map[i] = NULL;
-	ft_putstr_fd("GET_MAP : passed\n", 2);
+	ft_putstr_fd("\nGET_MAP : passed\n", 2);
 }

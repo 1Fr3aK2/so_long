@@ -112,3 +112,6 @@ POR MELHORAR :
         ->DESCOMENTAR FREE DO MAPA !!!! 
 GNL :
     -> veificar strjoin(null, line[fd]) leaks -> por fazer -> quando malloc falhar retorna null e nao da leak, corrigir norma
+
+
+CORRIGIT CHECK_MAP_FORMAT quando o mapa nao acaba em quebra de linha
