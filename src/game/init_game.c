@@ -35,9 +35,7 @@ int	init_game(t_data *data)
 			data->map.height * 64, "so_long");
 	if (!data->window_ptr)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR CREATING WINDOW\n");
-	if (load_sprites(data) != 1 || load_player(data) != 1
-		|| load_player_animations_right(data) != 1
-		|| load_player_animations_left(data) != 1)
+	if (load_all(data) != 1)
 		exit_error(data,
 			"ERROR:\nERROR INIT_GAME: something wrong loading images\n");
 	return (1);

@@ -65,7 +65,7 @@ int	load_player(t_data *data)
 	return (1);
 }
 
-/* static int	load_enemy(t_data *data)
+int	load_enemy(t_data *data)
 {
 	if (!data)
 		return (-1);
@@ -95,4 +95,19 @@ int	load_player(t_data *data)
 	if (!data->enemy.left.img)
 		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy LEFT IMAGE\n");
 	return (1);
-} */
+}
+
+int	load_all(t_data *data)
+{
+	if (!data)
+		return (-1);
+	if (load_sprites(data) != 1)
+		return (-1);
+	if (load_player(data) != 1)
+		return (-1);
+	if (load_player_animations_left(data) != 1)
+		return (-1);
+	if (load_player_animations_right(data) != 1)
+		return (-1);
+	return (1);
+}

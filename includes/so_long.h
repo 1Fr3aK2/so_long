@@ -121,12 +121,16 @@ void	draw_hud(t_data *data);
 void	draw_elements(t_data *data);
 
 //game/images
+int		load_all(t_data *data);
 int		load_player(t_data *data);
 int		load_sprites(t_data *data);
+int		load_enemy(t_data *data);
 
 //game/animations
 int		load_player_animations_right(t_data *data);
 int		load_player_animations_left(t_data *data);
+int		load_enemy_animations_right(t_data *data);
+int		load_enemy_animations_left(t_data *data);
 
 //game/keys
 int		handle_key(int key, t_data *data);
