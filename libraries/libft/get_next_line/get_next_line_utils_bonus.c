@@ -6,7 +6,7 @@
 /*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 02:21:58 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/16 07:16:16 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/28 20:04:38 by rafael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,14 @@ char	*ft_strjoin_line(char *s1, char *s2)
 	if (!s1)
 		return (NULL);
 	if (!s2)
-	{
-		free(s1);
-		return (NULL);
-	}
-	i = 0;
+		return (free_gnl(s1));
+	i = -1;
 	j = 0;
 	str = malloc(ft_strlen_line(s1) + ft_strlen_line(s2) + 1);
 	if (!str)
 		return (free_gnl(s1));
-	while (s1[i])
-	{
+	while (s1[++i])
 		str[i] = s1[i];
-		i++;
-	}
 	while (s2[j] && s2[j] != '\n')
 		str[i++] = s2[j++];
 	if (s2[j] == '\n')
