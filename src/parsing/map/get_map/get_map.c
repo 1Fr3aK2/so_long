@@ -39,8 +39,8 @@ void	get_map(char *file_name, t_data *data)
 	data->file.fd = open(file_name, O_RDONLY);
 	if (data->file.fd < 0)
 		exit_error(NULL, "ERROR:\nGET_MAP : Error opening the file\n");
-	/* data->map.map = malloc(sizeof(char *) * (data->map.height + 1)); */
-	data->map.map = ft_calloc(data->map.height + 1, sizeof(char *));
+	data->map.map = malloc(sizeof(char *) * (data->map.height + 1));
+	/* data->map.map = ft_calloc(data->map.height + 1, sizeof(char *)); */
 	if (!data->map.map)
 		exit_error(NULL, "ERROR:\nGET_MAP : Memory allocation error\n");
 	while (i < data->map.height + 1)
