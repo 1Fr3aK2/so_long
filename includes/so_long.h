@@ -7,12 +7,13 @@
 # define WHITE 0x00FFFFFF
 # define BLACK 0x00000000
 
-# define VALID_CHARS "01CEP"
+# define VALID_CHARS "01CEPQ"
 # define WALLS '1'
 # define SPACE '0'
 # define COLLECTIBLE 'C'
 # define EXIT 'E'
 # define START_POS 'P'
+# define ENEMY 'Q'
 
 # include <unistd.h>
 # include <stdio.h>

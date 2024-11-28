@@ -2,7 +2,7 @@
 static char *f4b14f50b6ee4946cd075ba187857c79Rl99hsvrX9awlVSI[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 228 2 ",
-"   c None",
+"   c #ADD8E6",
 ".  c #090105",
 "X  c #0B0409",
 "o  c #09050A",

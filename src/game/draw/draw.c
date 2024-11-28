@@ -16,6 +16,9 @@ void	draw_elements(t_data *data)
 			if (data->map.map[y][x] == WALLS)
 				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 					data->sprites.wall.img, x * 64, y * 64);
+			if (data->map.map[y][x] == ENEMY)
+				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+					data->enemy.idle.img, x * 64, y * 64);
 			if (data->map.map[y][x] == EXIT)
 			{
 				if (data->map.collectibles == 0 && data->sprites.exit_2.img)

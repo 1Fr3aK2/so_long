@@ -38,6 +38,8 @@ int	flood_fill_map(char **map, int y, int x, t_data *data)
 		data->map.check_exit = 1;
 		return (1);
 	}
+	if (map[y][x] == ENEMY)
+		return (1);
 	map[y][x] = '2';
 	flood_fill_map(map, y - 1, x, data);
 	flood_fill_map(map, y + 1, x, data);
