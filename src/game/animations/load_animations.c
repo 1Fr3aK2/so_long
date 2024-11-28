@@ -89,3 +89,93 @@ int	load_player_animations_left(t_data *data)
 		return (-1);
 	return (1);
 }
+
+/* static int	load_enemy_animations_right(t_data *data)
+{
+	if (!data)
+		return (-1);
+	data->enemy.walk_right.frames[0].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_0.xpm",
+			&data->enemy.walk_right.frames[0].width,
+			&data->enemy.walk_right.frames[0].height);
+	data->enemy.walk_right.frames[1].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_1.xpm",
+			&data->enemy.walk_right.frames[1].width,
+			&data->enemy.walk_right.frames[1].height);
+	data->enemy.walk_right.frames[2].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_2.xpm",
+			&data->enemy.walk_right.frames[2].width,
+			&data->enemy.walk_right.frames[2].height);
+	data->enemy.walk_right.frames[3].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_3.xpm",
+			&data->enemy.walk_right.frames[3].width,
+			&data->enemy.walk_right.frames[3].height);
+	data->enemy.walk_right.frames[4].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_4.xpm",
+			&data->enemy.walk_right.frames[4].width,
+			&data->enemy.walk_right.frames[4].height);
+	data->enemy.walk_right.frames[5].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_5.xpm",
+			&data->enemy.walk_right.frames[5].width,
+			&data->enemy.walk_right.frames[5].height);
+	data->enemy.walk_right.frames[6].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/right/right_6.xpm",
+			&data->enemy.walk_right.frames[6].width,
+			&data->enemy.walk_right.frames[6].height);
+	data->enemy.walk_right.total_frames = 7;
+	data->enemy.walk_right.speed = 75;
+	if (!data->enemy.walk_right.frames[0].img
+		|| !data->enemy.walk_right.frames[1].img
+		|| !data->enemy.walk_right.frames[2].img
+		|| !data->enemy.walk_right.frames[3].img
+		|| !data->enemy.walk_right.frames[4].img
+		|| !data->enemy.walk_right.frames[5].img
+		|| !data->enemy.walk_right.frames[6].img)
+		return (-1);
+	return (1);
+}
+
+static int	load_enemy_animations_left(t_data *data)
+{
+	if (!data)
+		return (-1);
+	data->enemy.walk_left.frames[0].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_0.xpm",
+			&data->enemy.walk_left.frames[0].width,
+			&data->enemy.walk_left.frames[0].height);
+	data->enemy.walk_left.frames[1].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_1.xpm",
+			&data->enemy.walk_left.frames[1].width,
+			&data->enemy.walk_left.frames[1].height);
+	data->enemy.walk_left.frames[2].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_2.xpm",
+			&data->enemy.walk_left.frames[2].width,
+			&data->enemy.walk_left.frames[2].height);
+	data->enemy.walk_left.frames[3].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_3.xpm",
+			&data->enemy.walk_left.frames[3].width,
+			&data->enemy.walk_left.frames[3].height);
+	data->enemy.walk_left.frames[4].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_4.xpm",
+			&data->enemy.walk_left.frames[4].width,
+			&data->enemy.walk_left.frames[4].height);
+	data->enemy.walk_left.frames[5].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_5.xpm",
+			&data->enemy.walk_left.frames[5].width,
+			&data->enemy.walk_left.frames[5].height);
+	data->enemy.walk_left.frames[6].img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/animations/left/left_6.xpm",
+			&data->enemy.walk_left.frames[6].width,
+			&data->enemy.walk_left.frames[6].height);
+	data->enemy.walk_left.total_frames = 7;
+	data->enemy.walk_left.speed = 75;
+	if (!data->enemy.walk_left.frames[0].img
+		|| !data->enemy.walk_left.frames[1].img
+		|| !data->enemy.walk_left.frames[2].img
+		|| !data->enemy.walk_left.frames[3].img
+		|| !data->enemy.walk_left.frames[4].img
+		|| !data->enemy.walk_left.frames[5].img
+		|| !data->enemy.walk_left.frames[6].img)
+		return (-1);
+	return (1);
+} */

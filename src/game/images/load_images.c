@@ -64,3 +64,35 @@ int	load_player(t_data *data)
 		exit_error(data, "LOAD_SPRITES: ERROR LOADING PLAYER LEFT IMAGE\n");
 	return (1);
 }
+
+/* static int	load_enemy(t_data *data)
+{
+	if (!data)
+		return (-1);
+	data->enemy.idle.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/static_img/enemy_right.xpm",
+			&data->enemy.idle.width, &data->enemy.idle.height);
+	if (!data->enemy.idle.img)
+		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy IMAGE\n");
+	data->enemy.front.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/static_img/enemy_right.xpm",
+			&data->enemy.front.width, &data->enemy.front.height);
+	if (!data->enemy.front.img)
+		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy FRONT IMAGE\n");
+	data->enemy.back.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/static_img/enemy_right.xpm",
+			&data->enemy.back.width, &data->enemy.back.height);
+	if (!data->enemy.back.img)
+		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy BACK IMAGE\n");
+	data->enemy.right.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/static_img/enemy_right.xpm",
+			&data->enemy.right.width, &data->enemy.right.height);
+	if (!data->enemy.right.img)
+		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy RIGHT IMAGE\n");
+	data->enemy.left.img = mlx_xpm_file_to_image(data->mlx_ptr,
+			"assets/enemy/static_img/enemy_left.xpm",
+			&data->enemy.left.width, &data->enemy.left.height);
+	if (!data->enemy.left.img)
+		exit_error(data, "LOAD_SPRITES: ERROR LOADING enemy LEFT IMAGE\n");
+	return (1);
+} */

@@ -93,6 +93,7 @@ typedef struct s_data
 	t_map		map;
 	t_file		file;
 	t_player	player;
+	t_player	enemy;
 	t_sprites	sprites;
 	void		*mlx_ptr;
 	void		*window_ptr;
@@ -103,12 +104,12 @@ typedef struct s_data
 	int			last_key;
 }				t_data;
 
-/* void animate_player(t_animation *animation, t_data *data); */
 //errors
 void	exit_error(t_data *data, char *str);
 void	free_images(t_data *data);
 void	free_player(t_data *data);
 void	free_animations(t_data *data);
+void	free_all(t_data *data);
 
 //game
 int		game_loop(t_data *data);

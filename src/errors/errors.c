@@ -2,36 +2,35 @@
 
 void	exit_error(t_data *data, char *str)
 {
-	if (str)
-		ft_putstr_fd(str, 2);
-	else
+	if (!str)
 		ft_putstr_fd("Error\n", 2);
-	free_animations(data);
-	free_images(data);
-	free_player(data);
+	ft_putstr_fd(str, 2);
+	free_all(data);
 	if (data)
 	{
 		if (data->map.map)
-		{
 			free_arr(data->map.map, data->map.height);
-			data->map.map = NULL;
-		}
 		if (data->window_ptr)
-		{
 			mlx_destroy_window(data->mlx_ptr, data->window_ptr);
-			data->window_ptr = NULL;
-		}
 		if (data->mlx_ptr)
 		{
 			mlx_destroy_display(data->mlx_ptr);
 			free(data->mlx_ptr);
-			data->mlx_ptr = NULL;
 		}
 		data = NULL;
 	}
 	close_fds(0);
 	check_open_fds();
 	exit(1);
+}
+
+void	free_all(t_data *data)
+{
+	if (!data)
+		return ;
+	free_animations(data);
+	free_images(data);
+	free_player(data);
 }
 
 void	free_images(t_data *data)
@@ -82,7 +81,6 @@ void	free_animations(t_data *data)
 		{
 			mlx_destroy_image(data->mlx_ptr,
 				data->player.walk_right.frames[i].img);
-			data->player.walk_right.frames[i].img = NULL;
 		}
 		i++;
 	}
@@ -93,7 +91,6 @@ void	free_animations(t_data *data)
 		{
 			mlx_destroy_image(data->mlx_ptr,
 				data->player.walk_left.frames[i].img);
-			data->player.walk_left.frames[i].img = NULL;
 		}
 		i++;
 	}
