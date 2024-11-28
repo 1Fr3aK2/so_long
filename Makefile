@@ -8,6 +8,7 @@ SRCS = main/main.c \
 	   src/parsing/map/init_map.c \
 	   src/init/init.c \
 	   src/utils/utils.c \
+	   src/utils/utils_2.c \
 	   src/errors/errors.c \
 	   src/game/init_game.c \
 	   src/game/images/load_images.c \

@@ -105,6 +105,8 @@ int	load_all(t_data *data)
 		return (-1);
 	if (load_player(data) != 1)
 		return (-1);
+	if (load_enemy(data) != 1)
+		return (-1);
 	if (load_player_animations_left(data) != 1)
 		return (-1);
 	if (load_player_animations_right(data) != 1)

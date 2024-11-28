@@ -106,9 +106,6 @@ typedef struct s_data
 
 //errors
 void	exit_error(t_data *data, char *str);
-void	free_images(t_data *data);
-void	free_player(t_data *data);
-void	free_animations(t_data *data);
 void	free_all(t_data *data);
 
 //game
@@ -172,6 +169,12 @@ int		init_map(char *file, t_data *data);
 void	close_fds(int i);
 void	free_arr(char **arr, int height);
 void	free_temp_map(char **map);
+
+//utils_2
+void	free_images(t_data *data);
+void	free_player(t_data *data);
+void	free_enemy(t_data *data);
+void	free_animations(t_data *data);
 
 //test_functions
 void	check_open_fds(void);
