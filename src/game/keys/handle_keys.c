@@ -57,6 +57,8 @@ void	move_player(int key, t_data *data)
 	if (data->map.map[data->player.y][data->player.x] == EXIT
 		&& data->map.collectibles == 0)
 		exit_error(data, "GAME OVER!\n");
+	if (data->map.map[data->player.y][data->player.x] == ENEMY)
+		exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
 }
 
 int	press_x(t_data *data)
