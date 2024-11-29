@@ -119,6 +119,7 @@ void	draw_hud(t_data *data);
 void	draw_elements(t_data *data);
 
 //game/images
+int		load_img(t_data *data, t_image *img, char *path);
 int		load_all(t_data *data);
 int		load_player(t_data *data);
 int		load_sprites(t_data *data);
@@ -160,8 +161,10 @@ int		check_flood_fill(char **map, t_data *data);
 int		check_valid_path(t_map *map, t_data *data);
 
 //parsing/get_map
+int		alloc_map(t_data *data, int *i);
 void	get_lines(t_data *data, char *file_name);
 void	get_map(char *file_name, t_data *data);
+void	start_map(t_data *data);
 
 //parsing/init_map
 int		init_map(char *file, t_data *data);
