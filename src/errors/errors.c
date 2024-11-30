@@ -5,9 +5,9 @@ void	exit_error(t_data *data, char *str)
 	if (!str)
 		ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
-	free_all(data);
 	if (data)
 	{
+		free_all(data);
 		if (data->map.map)
 			free_arr(data->map.map, data->map.height);
 		if (data->window_ptr)
@@ -33,4 +33,3 @@ void	free_all(t_data *data)
 	free_player(data);
 	free_enemy(data);
 }
-

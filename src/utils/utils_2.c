@@ -64,6 +64,7 @@ void	free_animations(t_data *data)
 		{
 			mlx_destroy_image(data->mlx_ptr,
 				data->player.walk_right.frames[i].img);
+			data->player.walk_right.frames[i].img = NULL;
 		}
 		i++;
 	}
@@ -74,6 +75,7 @@ void	free_animations(t_data *data)
 		{
 			mlx_destroy_image(data->mlx_ptr,
 				data->player.walk_left.frames[i].img);
+			data->player.walk_left.frames[i].img = NULL;
 		}
 		i++;
 	}

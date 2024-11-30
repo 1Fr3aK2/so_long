@@ -5,3 +5,5 @@ MLX_GET_SCREEN_SIZE() -> Esta função obtém a largura e altura máximas permit
                         Isso depende do monitor ou das configurações do sistema
 
 
+ANIMCAOES COUNTER
+cada vez que faz uma animacao, conta um ciclo, cada animacao = 75;

@@ -114,9 +114,11 @@ int		game_loop(t_data *data);
 int		init_game(t_data *data);
 
 //game/draw
+int		put_img(t_data *data, t_image *img, int x, int y);
+int		draw_element(t_data *data, int y, int x);
+void	draw_elements(t_data *data);
 void	draw_player(int key, t_data *data);
 void	draw_hud(t_data *data);
-void	draw_elements(t_data *data);
 
 //game/images
 int		load_img(t_data *data, t_image *img, char *path);
