@@ -1,14 +1,5 @@
 #include "../../../includes/so_long.h"
 
-int	put_img(t_data *data, t_image *img, int x, int y)
-{
-	if (!data || !img || !img->img)
-		return (-1);
-	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, img->img, x * 64, y
-		* 64);
-	return (1);
-}
-
 int	draw_element(t_data *data, int y, int x)
 {
 	if (!data || y < 0 || x < 0)
@@ -57,45 +48,40 @@ void	draw_elements(t_data *data)
 	}
 }
 
+static void	check_animation(t_data *data, t_animation *animation)
+{
+	if (!animation)
+	{
+		put_img(data, &data->player.idle, data->player.x, data->player.y);
+		return ;
+	}
+	if (data->player.prev_x != data->player.x
+		|| data->player.prev_y != data->player.y)
+		animation->current_frame = 0;
+	if (animation->current_frame < animation->total_frames - 1
+		&& ++animation->counter >= animation->speed)
+	{
+		animation->current_frame++;
+		animation->counter = 0;
+	}
+	put_img(data, &animation->frames[animation->current_frame], data->player.x,
+		data->player.y);
+}
+
 void	draw_player(int key, t_data *data)
 {
 	t_animation	*current_animation;
 
 	current_animation = NULL;
 	if (key == XK_d || key == XK_Right)
-	{
 		current_animation = &data->player.walk_right;
-		if (data->player.prev_x != data->player.x
-			|| data->player.prev_y != data->player.y)
-			current_animation->current_frame = 0;
-	}
 	else if (key == XK_a || key == XK_Left)
-	{
 		current_animation = &data->player.walk_left;
-		if (data->player.prev_x != data->player.x
-			|| data->player.prev_y != data->player.y)
-			current_animation->current_frame = 0;
-	}
 	else if (key == XK_w || key == XK_Up)
 		put_img(data, &data->player.front, data->player.x, data->player.y);
 	else if (key == XK_s || key == XK_Down)
 		put_img(data, &data->player.back, data->player.x, data->player.y);
-	if (current_animation)
-	{
-		if (current_animation->current_frame < current_animation->total_frames
-			- 1)
-		{
-			current_animation->counter++;
-			if (current_animation->counter >= current_animation->speed)
-			{
-				current_animation->current_frame++;
-				current_animation->counter = 0;
-			}
-		}
-		put_img(data, &current_animation->frames[current_animation->current_frame], data->player.x, data->player.y);
-	}
-	else
-		put_img(data, &data->player.idle, data->player.x, data->player.y);
+	check_animation(data, current_animation);
 	data->player.prev_x = data->player.x;
 	data->player.prev_y = data->player.y;
 }

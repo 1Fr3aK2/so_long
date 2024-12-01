@@ -80,3 +80,12 @@ void	free_animations(t_data *data)
 		i++;
 	}
 }
+
+int	put_img(t_data *data, t_image *img, int x, int y)
+{
+	if (!data || !img || !img->img)
+		return (-1);
+	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, img->img, x * 64, y
+		* 64);
+	return (1);
+}
