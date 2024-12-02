@@ -22,7 +22,7 @@ int	load_player_animations_right(t_data *data)
 			return (-1);
 		data->player.walk_right.total_frames++;
 	}
-	data->player.walk_right.speed = 75;
+	data->player.walk_right.speed = 300;
 	return (1);
 }
 
@@ -48,7 +48,7 @@ int	load_player_animations_left(t_data *data)
 			return (-1);
 		data->player.walk_left.total_frames++;
 	}
-	data->player.walk_left.speed = 75;
+	data->player.walk_left.speed = 300;
 	return (1);
 }
 
@@ -74,7 +74,7 @@ int	load_enemy_animations_left(t_data *data)
 			return (-1);
 		data->enemy.walk_left.total_frames++;
 	}
-	data->enemy.walk_left.speed = 75;
+	data->enemy.walk_left.speed = 300;
 	return (1);
 }
 /* static int	load_enemy_animations_right(t_data *data)
