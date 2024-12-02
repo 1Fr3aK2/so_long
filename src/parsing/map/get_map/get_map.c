@@ -86,7 +86,6 @@ void	get_map(char *file_name, t_data *data)
 	if (alloc_map(data, &i) != 1)
 		exit_error(data, "ERROR:\n GET_MAP ERROR W/ALLOC MAP\n");
 	close(data->file.fd);
-	/* data->map.height = 987; */
 	if (i != data->map.height)
 		exit_error(data, "ERROR:\nGET_MAP : expected != real lines\n");
 }

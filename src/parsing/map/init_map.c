@@ -14,6 +14,5 @@ int	init_map(char *file, t_data *data)
 	if (check_valid_path(&data->map, data) != 1)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR CHECKING VALID PATH\n");
 	close_fds(0);
-	check_open_fds();
 	return (1);
 }

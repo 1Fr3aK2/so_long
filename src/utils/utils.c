@@ -44,7 +44,15 @@ void	free_temp_map(char **map)
 	map = NULL;
 }
 
-void	*my_malloc(size_t size)
+void	free_animations(t_data *data)
+{
+	if (!data)
+		return ;
+	free_animation_frames(data->mlx_ptr, &data->player.walk_right);
+	free_animation_frames(data->mlx_ptr, &data->player.walk_left);
+}
+
+/* void	*my_malloc(size_t size)
 {
 	int malloc_fail_counter = 0; // Número de chamadas antes de falhar
 	if (--malloc_fail_counter <= 0)
@@ -52,17 +60,4 @@ void	*my_malloc(size_t size)
 		return (NULL); // Força falha de alocação
 	}
 	return (malloc(size));
-}
-void	check_open_fds(void)
-{
-	int	fd;
-
-	// F_GETFD retorna -1 se o FD não está em uso
-	for (fd = 3; fd < 1024; ++fd)
-	{
-		if (fcntl(fd, F_GETFD) != -1)
-		{
-			printf("\nFD %d is still open\n", fd);
-		}
-	}
-}
+}*/

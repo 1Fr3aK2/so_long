@@ -51,31 +51,17 @@ void	free_enemy(t_data *data)
 		mlx_destroy_image(data->mlx_ptr, data->enemy.idle.img);
 }
 
-void	free_animations(t_data *data)
+void	free_animation_frames(t_data *mlx_ptr, t_animation *animation)
 {
 	int	i;
 
-	if (!data)
-		return ;
 	i = 0;
-	while (i < data->player.walk_right.total_frames)
+	while (i < animation->total_frames)
 	{
-		if (data->player.walk_right.frames[i].img)
+		if (animation->frames[i].img)
 		{
-			mlx_destroy_image(data->mlx_ptr,
-				data->player.walk_right.frames[i].img);
-			data->player.walk_right.frames[i].img = NULL;
-		}
-		i++;
-	}
-	i = 0;
-	while (i < data->player.walk_left.total_frames)
-	{
-		if (data->player.walk_left.frames[i].img)
-		{
-			mlx_destroy_image(data->mlx_ptr,
-				data->player.walk_left.frames[i].img);
-			data->player.walk_left.frames[i].img = NULL;
+			mlx_destroy_image(mlx_ptr, animation->frames[i].img);
+			animation->frames[i].img = NULL;
 		}
 		i++;
 	}

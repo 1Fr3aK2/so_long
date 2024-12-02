@@ -20,7 +20,6 @@ void	exit_error(t_data *data, char *str)
 		data = NULL;
 	}
 	close_fds(0);
-	check_open_fds();
 	exit(1);
 }
 

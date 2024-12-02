@@ -13,6 +13,7 @@ SRCS = main/main.c \
 	   src/game/init_game.c \
 	   src/game/images/load_images.c \
 	   src/game/animations/load_animations.c \
+	   src/game/keys/moves.c \
 	   src/game/keys/handle_keys.c \
 	   src/game/draw/draw.c \
 

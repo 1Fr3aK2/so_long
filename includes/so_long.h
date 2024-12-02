@@ -138,6 +138,12 @@ int		handle_key(int key, t_data *data);
 int		press_x(t_data *data);
 void	move_player(int key, t_data *data);
 
+//game/keys/moves
+void	move_up(t_data *data, int key);
+void	move_down(t_data *data, int key);
+void	move_right(t_data *data, int key);
+void	move_left(t_data *data, int key);
+void	moves(t_data *data, int key);
 //init
 void	init_struct(t_data *data);
 
@@ -181,8 +187,8 @@ void	free_images(t_data *data);
 void	free_player(t_data *data);
 void	free_enemy(t_data *data);
 void	free_animations(t_data *data);
+void	free_animation_frames(t_data *mlx_ptr, t_animation *animation);
 
 //test_functions
-void	check_open_fds(void);
 void	*my_malloc(size_t size);
 #endif
