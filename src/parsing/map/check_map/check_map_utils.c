@@ -117,4 +117,3 @@ int	check_exit(t_map *map)
 		return (0);
 	return (1);
 }
-//tentar adicionar coordenadas exit e start;
