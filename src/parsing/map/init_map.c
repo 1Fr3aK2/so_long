@@ -11,6 +11,8 @@ int	init_map(char *file, t_data *data)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR CHECKING THE MAP\n");
 	if (get_positions(&data->map, data) != 1)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR GETTING POSITIONS\n");
+	if (get_enemy_pos(&data->map, data) != 1)
+		exit_error(data, "ERROR:\nINIT_MAP: ERROR GETTING ENEMY POS\n");
 	if (check_valid_path(&data->map, data) != 1)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR CHECKING VALID PATH\n");
 	close_fds(0);

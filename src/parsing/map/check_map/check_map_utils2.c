@@ -52,3 +52,28 @@ int	get_positions(t_map *map, t_data *data)
 	}
 	return (1);
 }
+
+int	get_enemy_pos(t_map *map, t_data *data)
+{
+	int	i;
+	int	j;
+
+	if (!map || !data)
+		return (-1);
+	i = 0;
+	while (i < map->height)
+	{
+		j = -1;
+		while (map->map[i][++j] && j < map->width)
+		{
+			if (map->map[i][j] == ENEMY)
+			{
+				data->enemy.x = j;
+				data->enemy.y = i;
+				return (1);
+			}
+		}
+		i++;
+	}
+	return (1);
+}

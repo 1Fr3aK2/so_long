@@ -24,7 +24,7 @@ void	move_up(t_data *data, int key)
 		&& data->map.collectibles == 0)
 		exit_error(data, "GAME OVER!\n");
 	if (data->map.map[data->player.y][data->player.x] == ENEMY)
-		exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
+		bomb_anim_exit(data);
 }
 
 void	move_down(t_data *data, int key)
@@ -51,7 +51,7 @@ void	move_down(t_data *data, int key)
 		&& data->map.collectibles == 0)
 		exit_error(data, "GAME OVER!\n");
 	if (data->map.map[data->player.y][data->player.x] == ENEMY)
-		exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
+		bomb_anim_exit(data);
 }
 
 void	move_right(t_data *data, int key)
@@ -78,7 +78,7 @@ void	move_right(t_data *data, int key)
 		&& data->map.collectibles == 0)
 		exit_error(data, "GAME OVER!\n");
 	if (data->map.map[data->player.y][data->player.x] == ENEMY)
-		exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
+		bomb_anim_exit(data);
 }
 
 void	move_left(t_data *data, int key)
@@ -105,7 +105,7 @@ void	move_left(t_data *data, int key)
 		&& data->map.collectibles == 0)
 		exit_error(data, "GAME OVER!\n");
 	if (data->map.map[data->player.y][data->player.x] == ENEMY)
-		exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
+		bomb_anim_exit(data);
 }
 
 void	moves(t_data *data, int key)

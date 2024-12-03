@@ -130,8 +130,7 @@ int		load_enemy(t_data *data);
 //game/animations
 int		load_player_animations_right(t_data *data);
 int		load_player_animations_left(t_data *data);
-int		load_enemy_animations_right(t_data *data);
-int		load_enemy_animations_left(t_data *data);
+int		load_enemy_animations(t_data *data);
 
 //game/keys
 int		handle_key(int key, t_data *data);
@@ -161,6 +160,7 @@ int		check_collectibles(t_map *map);
 int		check_exit(t_map *map);
 int		check_start_pos(t_map *map);
 int		get_positions(t_map *map, t_data *data);
+int		get_enemy_pos(t_map *map, t_data *data);
 
 //parsing/check_map/check_temp_map
 char	**copy_map(char **map, int height);
@@ -181,6 +181,7 @@ int		init_map(char *file, t_data *data);
 void	close_fds(int i);
 void	free_arr(char **arr, int height);
 void	free_temp_map(char **map);
+void	bomb_anim_exit(t_data *data);
 
 //utils_2
 void	free_images(t_data *data);

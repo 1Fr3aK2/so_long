@@ -50,6 +50,26 @@ void	free_animations(t_data *data)
 		return ;
 	free_animation_frames(data->mlx_ptr, &data->player.walk_right);
 	free_animation_frames(data->mlx_ptr, &data->player.walk_left);
+	free_animation_frames(data->mlx_ptr, &data->enemy.walk_left);
+}
+
+void	bomb_anim_exit(t_data *data)
+{
+	t_animation	*bomb_animation;
+
+	bomb_animation = &data->enemy.walk_left;
+	while (bomb_animation->current_frame < bomb_animation->total_frames)
+	{
+		put_img(data, &bomb_animation->frames[bomb_animation->current_frame],
+			data->enemy.x, data->enemy.y);
+		bomb_animation->counter++;
+		if (bomb_animation->counter >= bomb_animation->speed)
+		{
+			bomb_animation->current_frame++;
+			bomb_animation->counter = 0;
+		}
+	}
+	exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
 }
 
 /* void	*my_malloc(size_t size)

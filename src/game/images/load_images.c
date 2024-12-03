@@ -67,24 +67,8 @@ int	load_enemy(t_data *data)
 	if (!data)
 		return (-1);
 	if (load_img(data, &data->enemy.idle,
-			"assets/enemy/static_img/enemy_right.xpm") != 1)
+			"assets/enemy/static/static_img.xpm") != 1)
 		exit_error(data, "ERROR:\nLOAD_ENEMY: ERROR LOADING ENEMY IMAGE\n");
-	if (load_img(data, &data->enemy.front,
-			"assets/enemy/static_img/enemy_right.xpm") != 1)
-		exit_error(data,
-			"ERROR:\nLOAD_ENEMY: ERROR LOADING ENEMY FRONT IMAGE\n");
-	if (load_img(data, &data->enemy.back,
-			"assets/enemy/static_img/enemy_right.xpm") != 1)
-		exit_error(data,
-			"ERROR:\nLOAD_ENEMY: ERROR LOADING ENEMY BACK IMAGE\n");
-	if (load_img(data, &data->enemy.right,
-			"assets/enemy/static_img/enemy_right.xpm") != 1)
-		exit_error(data,
-			"ERROR:\nLOAD_ENEMY: ERROR LOADING ENEMY RIGHT IMAGE\n");
-	if (load_img(data, &data->enemy.left,
-			"assets/enemy/static_img/enemy_left.xpm") != 1)
-		exit_error(data,
-			"ERROR:\nLOAD_ENEMY: ERROR LOADING ENEMY LEFT IMAGE\n");
 	return (1);
 }
 
@@ -101,6 +85,8 @@ int	load_all(t_data *data)
 	if (load_player_animations_left(data) != 1)
 		return (-1);
 	if (load_player_animations_right(data) != 1)
+		return (-1);
+	if (load_enemy_animations(data) != 1)
 		return (-1);
 	return (1);
 }
