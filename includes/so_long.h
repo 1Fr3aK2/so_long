@@ -74,9 +74,6 @@ typedef struct s_player
 	t_image		left;
 	t_animation	walk_right;
 	t_animation	walk_left;
-	t_animation	walk_down;
-	t_animation	walk_up;
-
 }				t_player;
 
 typedef struct s_sprites
