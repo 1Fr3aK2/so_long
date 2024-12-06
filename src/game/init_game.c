@@ -28,11 +28,11 @@ int	init_game(t_data *data)
 	printf("screen_width: %d screen_size: %d\n", data->screen_width,
 		data->screen_size);
 	mlx_get_screen_size(data->mlx_ptr, &data->screen_width, &data->screen_size);
-	if (((data->map.width * 64) + 32 > data->screen_width) || ((data->map.height
-				* 64) + 32 > data->screen_size))
+	if (((data->map.width * 32) > data->screen_width) || ((data->map.height
+				* 32)> data->screen_size))
 		exit_error(data, "ERROR:\nINIT_GAME: SCRENN BIGGER THAN EXPECTED\n");
-	data->window_ptr = mlx_new_window(data->mlx_ptr, data->map.width * 64,
-			data->map.height * 64, "so_long");
+	data->window_ptr = mlx_new_window(data->mlx_ptr, data->map.width * 32,
+			data->map.height * 32, "so_long");
 	if (!data->window_ptr)
 		exit_error(data, "ERROR:\nINIT_MAP: ERROR CREATING WINDOW\n");
 	if (load_all(data) != 1)
