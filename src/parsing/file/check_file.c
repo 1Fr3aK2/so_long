@@ -13,7 +13,5 @@ void	check_map_name(char *file_name)
 	len = ft_strlen(file_name);
 	if (len < 4 || ft_strncmp(&file_name[len - 4], ".ber", 4) != 0)
 		exit_error(NULL, "ERROR:\n: Invalid map name, should be .ber\n");
-	else
-		ft_putstr_fd("check name passed\n", 1);
 	close(file.fd);
 }

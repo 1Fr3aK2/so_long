@@ -20,10 +20,7 @@ void	get_lines(t_data *data, char *file_name)
 		free(line);
 		line = get_next_line(data->file.fd);
 	}
-	printf("height : %d\n", data->map.height);
-	printf("width : %d\n", data->map.width);
 	close(data->file.fd);
-	ft_putstr_fd("get_lines passed\n", 2);
 }
 
 void	start_map(t_data *data)

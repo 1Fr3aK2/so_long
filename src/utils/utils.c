@@ -56,6 +56,8 @@ void	free_animations(t_data *data)
 void	bomb_anim_exit(t_data *data)
 {
 	t_animation	*bomb_animation;
+	int			delay;
+	int			i;
 
 	bomb_animation = &data->enemy.walk_left;
 	while (bomb_animation->current_frame < bomb_animation->total_frames)
@@ -69,15 +71,11 @@ void	bomb_anim_exit(t_data *data)
 			bomb_animation->counter = 0;
 		}
 	}
+	i = 0;
+	delay = 500000000;
+	while (i < delay)
+	{
+		i++;
+	}
 	exit_error(data, "GAME OVER: YOU GOT CAUGHT BY THE ENEMY!\n");
 }
-
-/* void	*my_malloc(size_t size)
-{
-	int malloc_fail_counter = 0; // Número de chamadas antes de falhar
-	if (--malloc_fail_counter <= 0)
-	{
-		return (NULL); // Força falha de alocação
-	}
-	return (malloc(size));
-}*/

@@ -187,6 +187,4 @@ void	free_enemy(t_data *data);
 void	free_animations(t_data *data);
 void	free_animation_frames(t_data *mlx_ptr, t_animation *animation);
 
-//test_functions
-void	*my_malloc(size_t size);
 #endif

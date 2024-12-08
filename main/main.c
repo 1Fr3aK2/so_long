@@ -16,8 +16,6 @@ int	main(int argc, char *argv[])
 		exit_error(&data, "ERROR:\nCouldn't initialize the map\n");
 	if (init_game(&data) != 1)
 		exit_error(&data, "ERROR:\nCouldn't initialize the game\n");
-	printf("enemy cordenadas: y: %d\nx: %d\n", data.enemy.y, data.enemy.x);
-	printf("player cordenadas: y: %d\nx: %d\n", data.player.y, data.player.x);
 	mlx_loop_hook(data.mlx_ptr, game_loop, &data);
 	mlx_hook(data.window_ptr, KeyPress, KeyPressMask, handle_key, &data);
 	mlx_hook(data.window_ptr, DestroyNotify, StructureNotifyMask, press_x,

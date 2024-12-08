@@ -53,7 +53,6 @@ int	check_flood_fill(char **map, t_data *data)
 	if (!map || !data || data->map.check_coll != 0 || data->map.check_exit != 1)
 		return (-1);
 	free_temp_map(map);
-	printf("check_flood_fill passed\n");
 	return (1);
 }
 

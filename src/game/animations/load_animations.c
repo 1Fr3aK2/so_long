@@ -74,6 +74,6 @@ int	load_enemy_animations(t_data *data)
 			return (-1);
 		data->enemy.walk_left.total_frames++;
 	}
-	data->enemy.walk_left.speed = 1000;
+	data->enemy.walk_left.speed = 75;
 	return (1);
 }
