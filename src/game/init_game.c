@@ -7,7 +7,7 @@ int	game_loop(t_data *data)
 	if (!data)
 		return (-1);
 	frame++;
-	if (frame >= 1000)
+	if (frame >= 2000)
 	{
 		data->toggle_collectible = !data->toggle_collectible;
 		frame = 0;
