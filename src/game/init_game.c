@@ -36,5 +36,8 @@ int	init_game(t_data *data)
 	if (load_all(data) != 1)
 		exit_error(data,
 			"ERROR:\nERROR INIT_GAME: something wrong loading images\n");
+	mlx_hook(data->window_ptr, KeyPress, KeyPressMask, handle_key, data);
+	mlx_hook(data->window_ptr, DestroyNotify, StructureNotifyMask, press_x,
+		data);
 	return (1);
 }

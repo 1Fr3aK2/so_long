@@ -17,9 +17,6 @@ int	main(int argc, char *argv[])
 	if (init_game(&data) != 1)
 		exit_error(&data, "ERROR:\nCouldn't initialize the game\n");
 	mlx_loop_hook(data.mlx_ptr, game_loop, &data);
-	mlx_hook(data.window_ptr, KeyPress, KeyPressMask, handle_key, &data);
-	mlx_hook(data.window_ptr, DestroyNotify, StructureNotifyMask, press_x,
-		&data);
 	mlx_loop(data.mlx_ptr);
 	return (1);
 }
